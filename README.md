@@ -7,16 +7,19 @@ mentored by Miroslava Migovich.
 The purpose of this application is to be built for Vanderbuilt University to help keep track of
 equipment in the Robotics & Autonomous Systems Lab.
 
+## Prerequisite for developing or putting into production
+Download and Install Node.JS LTS: https://nodejs.org/en/download/
+
+If you're running Ubuntu, download Node.JS using the terminal command: `sudo apt install nodejs`
 ## Development
 
 1. Download and Install VS Code: https://code.visualstudio.com/
-2. Download and Install Node.JS LTS: https://nodejs.org/en/download/
-3. Clone this respository to your local machine
-4. Ask for correct environment variable files and for IP to be whitelisted on database
-5. Open up terminal, go to the `server/` folder, and run `npm install` (NOTE: this could take some time)
-6. Now, go to the `client/` folder, and run `npm install` (NOTE: this could take some time)
-7. Now, go back to the `server/` folder, and run `nodemon server` in terminal (this starts the server)
-8. Open a second terminal window, this time go to the `client/` folder and run `npm start` (this starts the client and should automatically open your browser to view webpage)
+2. Clone this respository to your local machine
+3. Ask for correct environment variable files and for IP to be whitelisted on database
+4. Open up terminal, go to the `server/` folder, and run `npm install` (NOTE: this could take some time)
+5. Now, go to the `client/` folder, and run `npm install` (NOTE: this could take some time)
+6. Now, go back to the `server/` folder, and run `nodemon server` in terminal (this starts the server)
+7. Open a second terminal window, this time go to the `client/` folder and run `npm start` (this starts the client and should automatically open your browser to view webpage)
 
 ## Production
 
@@ -29,9 +32,11 @@ equipment in the Robotics & Autonomous Systems Lab.
 7. Navigate back to the project, go to `server/` folder and create a file called `config.env`
 8. Enter, `ATLAS_URI=` and then paste what you have from step 6
 9. Replace the areas in the text you pasted where it has `<username>:<password>` with the username and password you created in step 5
-10. Have your domain point to the IP address of the server the website is running on
-11. Run the server by opening two terminals, on one, go to the `server/` folder and run `nodemon server`. In the next terminal, go to `client/` folder and run npm start.
-12. The web server should now be running and ready for actual use
+10. Next, navigate to the `server/` folder and run `npm install`
+11. Similarly, run `npm install` in the `client/` folder
+12. Run the server by opening two terminals, on one, go to the `server/` folder and run `nodemon server`. In the next terminal, go to `client/` folder and run npm start.
+13. The web server should now be running and ready for actual use
+14. Lastly, have your domain point to the IP address of the server the website is running on
 
 
 ## Credit
