@@ -2,7 +2,8 @@
 
 ## Introduction
 asset-management is an open-source MERN (MongoDB, Express.JS, React, and Node.JS) based
-web application made by students at Middle Tennessee State University led by Jacob Cuomo.
+web application made by students at Middle Tennessee State University led by Jacob Cuomo and
+mentored by Miroslava Migovich.
 The purpose of this application is to be built for Vanderbuilt University to help keep track of
 equipment in the Robotics & Autonomous Systems Lab.
 
