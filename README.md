@@ -26,7 +26,7 @@ equipment in the Robotics & Autonomous Systems Lab.
 5. Create the account with a username and password you will remember, then press `Add User` at the bottom right
 6. Connect to the cluster by clicking the `Connect`, then `Connect your application`, copy the data on that page.
 7. Navigate back to the project, go to `server/` folder and create a file called `config.env`
-8. Enter, `ATLAS_URI=` and then paste what you have from step 4
+8. Enter, `ATLAS_URI=` and then paste what you have from step 6
 9. Replace the areas in the text you pasted where it has `<username>:<password>` with the username and password you created in step 5
 10. Have your domain point to the IP address of the server the website is running on
 11. Run the server by opening two terminals, on one, go to the `server/` folder and run `nodemon server`. In the next terminal, go to `client/` folder and run npm start.
