@@ -18,8 +18,9 @@ If you're running Ubuntu, download Node.JS using the terminal command: `sudo apt
 3. Ask for correct environment variable files and for IP to be whitelisted on database
 4. Open up terminal, go to the `server/` folder, and run `npm install` (NOTE: this could take some time)
 5. Now, go to the `client/` folder, and run `npm install` (NOTE: this could take some time)
-6. Now, go back to the `server/` folder, and run `nodemon server` in terminal (this starts the server)
-7. Open a second terminal window, this time go to the `client/` folder and run `npm start` (this starts the client and should automatically open your browser to view webpage)
+6. Run `npm install -g nodemon` to install a dependency we will need for testing
+7. Now, go back to the `server/` folder, and run `nodemon server` in terminal (this starts the server)
+8. Open a second terminal window, this time go to the `client/` folder and run `npm start` (this starts the client and should automatically open your browser to view webpage)
 
 ## Production
 
