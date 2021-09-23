@@ -13,13 +13,15 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Route exact path="/">
-        <RecordList />
-      </Route>
-      <Route path="/edit/:id" component={Edit} />
-      <Route path="/create">
-        <Create />
-      </Route>
+      <div style={{width: 1250, margin: "auto"}}>
+        <Route exact path="/">
+          <RecordList />
+        </Route>
+        <Route path="/edit/:id" component={Edit} />
+        <Route path="/create">
+          <Create />
+        </Route>
+      </div>
     </div>
   );
 };
