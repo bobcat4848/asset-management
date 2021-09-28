@@ -21,7 +21,7 @@ const Record = (props) => (
     </td>
   </tr>
 );
- 
+
 export default class RecordList extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
@@ -70,13 +70,14 @@ export default class RecordList extends Component {
   render() {
     return (
       <div>
-        <h3>Record List</h3>
+        <h3>Equipment List</h3>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Level</th>
+              <th>Item</th>
+              <th>Picture</th>
+              <th>Identification Numbers</th>
+              <th>Storage Location</th>
               <th>Action</th>
             </tr>
           </thead>
