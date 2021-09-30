@@ -2,12 +2,14 @@ import React, { Component } from "react";
 // This will require to npm install axios
 import axios from 'axios';
 import { Link } from "react-router-dom";
- 
+
 const Record = (props) => (
   <tr>
-    <td>{props.record.person_name}</td>
-    <td>{props.record.person_position}</td>
-    <td>{props.record.person_level}</td>
+    <td>{props.record.item_name}</td>
+    <td>{props.record.item_picture_url}</td>
+    <td>{props.record.item_id_numbers}</td>
+    <td>{props.record.item_storage_loc}</td>
+    <td>{props.record.item_checked_out}</td>
     <td>
       <Link to={"/edit/" + props.record._id}>Edit</Link> |
       <a
@@ -78,6 +80,7 @@ export default class RecordList extends Component {
               <th>Picture</th>
               <th>Identification Numbers</th>
               <th>Storage Location</th>
+              <th>Checked Out?</th>
               <th>Action</th>
             </tr>
           </thead>

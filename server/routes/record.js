@@ -24,9 +24,13 @@ recordRoutes.route("/record").get(function (req, res) {
 recordRoutes.route("/record/add").post(function (req, res) {
   let db_connect = dbo.getDb("employees");
   let myobj = {
-    person_name: req.body.person_name,
-    person_position: req.body.person_position,
-    person_level: req.body.person_level,
+    item_name: req.body.item_name,
+    item_picture_url: req.body.item_picture_url,
+    item_id_numbers: req.body.item_id_numbers,
+    item_storage_loc: req.body.item_storage_loc,
+    item_checked_out: req.body.item_checked_out,
+    item_keywords: req.body.item_keywords,
+    item_notes: req.body.notes,
   };
   db_connect.collection("records").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -39,9 +43,13 @@ recordRoutes.route("/update/:id").post(function (req, res) {
   let myquery = { id: req.body.id };
   let newvalues = {
     $set: {
-      person_name: req.body.person_name,
-      person_position: req.body.person_position,
-      person_level: req.body.person_level,
+      item_name: req.body.item_name,
+      item_picture_url: req.body.item_picture_url,
+      item_id_numbers: req.body.item_id_numbers,
+      item_storage_loc: req.body.item_storage_loc,
+      item_checked_out: req.body.item_checked_out,
+      item_keywords: req.body.item_keywords,
+      item_notes: req.body.notes,
     },
   };
   db_connect
