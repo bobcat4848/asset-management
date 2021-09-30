@@ -149,8 +149,8 @@ export default class Create extends Component {
             <input
               type="text"
               className="form-control"
-              value={this.state.item_storage_loc}
-              onChange={this.onChangeItemStorageLocation}
+              value={this.state.item_keywords}
+              onChange={this.onChangeItemKeywords}
             />
           </div>
 
@@ -159,8 +159,8 @@ export default class Create extends Component {
             <input
               type="text"
               className="form-control"
-              value={this.state.item_storage_loc}
-              onChange={this.onChangeItemStorageLocation}
+              value={this.state.notes}
+              onChange={this.onChangeItemNotes}
             />
           </div>
 
