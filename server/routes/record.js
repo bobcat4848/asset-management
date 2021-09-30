@@ -30,7 +30,7 @@ recordRoutes.route("/record/add").post(function (req, res) {
     item_storage_loc: req.body.item_storage_loc,
     item_checked_out: req.body.item_checked_out,
     item_keywords: req.body.item_keywords,
-    item_notes: req.body.notes,
+    item_notes: req.body.item_notes,
   };
   db_connect.collection("records").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -49,7 +49,7 @@ recordRoutes.route("/update/:id").post(function (req, res) {
       item_storage_loc: req.body.item_storage_loc,
       item_checked_out: req.body.item_checked_out,
       item_keywords: req.body.item_keywords,
-      item_notes: req.body.notes,
+      item_notes: req.body.item_notes,
     },
   };
   db_connect

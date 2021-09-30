@@ -22,7 +22,7 @@ export default class Create extends Component {
       item_storage_loc: "",
       item_checked_out: false,
       item_keywords: "",
-      notes: "",
+      item_notes: "",
     };
   }
  
@@ -65,7 +65,7 @@ export default class Create extends Component {
 
   onChangeItemNotes(e) {
     this.setState({
-      notes: e.target.value,
+      item_notes: e.target.value,
     });
   }
 
@@ -82,7 +82,7 @@ export default class Create extends Component {
       item_storage_loc: this.state.item_storage_loc,
       item_checked_out: this.state.item_checked_out,
       item_keywords: this.state.item_keywords,
-      notes: this.state.notes,
+      item_notes: this.state.item_notes,
     };
  
     axios
@@ -97,7 +97,7 @@ export default class Create extends Component {
       item_storage_loc: "",
       item_checked_out: false,
       item_keywords: "",
-      notes: "",
+      item_notes: "",
     });
   }
  
@@ -159,7 +159,7 @@ export default class Create extends Component {
             <input
               type="text"
               className="form-control"
-              value={this.state.notes}
+              value={this.state.item_notes}
               onChange={this.onChangeItemNotes}
             />
           </div>
