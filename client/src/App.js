@@ -9,6 +9,7 @@ import Edit from "./components/edit";
 import Home from "./Home";
 import Create from "./components/create";
 import RecordList from "./components/recordList";
+import Item from "./components/item";
 
 const App = () => {
   return (
@@ -22,6 +23,9 @@ const App = () => {
         <Route path="/edit/:id" component={Edit} />
         <Route path="/create">
           <Create />
+        </Route>
+        <Route path="/item">
+          <Item />
         </Route>
       </div>
     </div>
