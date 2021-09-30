@@ -75,7 +75,7 @@ class Edit extends Component {
  
     this.props.history.push("/");
   }
- 
+ /*
   // This following section will display the update-form that takes the input from the user to update the data.
   render() {
     return (
@@ -151,9 +151,97 @@ class Edit extends Component {
       </div>
     );
   }
-}
+}*/
  
 // You can get access to the history object's properties and the closest <Route>'s match via the withRouter
 // higher-order component. This makes it easier for us to edit our records.
- 
+ // This following section will display the form that takes the input from the user.
+ render() {
+  return (
+    <div style={{ marginTop: 20 }}>
+      <h3>Edit Record</h3>
+      <form onSubmit={this.onSubmit}>
+        <div className="form-group">
+          <label>Name of the item (required): </label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.item_name}
+            onChange={this.onChangeItemName}
+          />
+        </div>
+        <div className="form-group">
+          <label>Item's Picture URL (optional): </label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.item_picture_url}
+            onChange={this.onChangeItemPictureUrl}
+          />
+        </div>
+        <div className="form-group">
+          <label>Item's ID Numbers (optional, separate with comma): </label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.item_id_numbers}
+            onChange={this.onChangeItemIdNumbers}
+          />
+        </div>
+        <div className="form-group">
+          <label>Item's Storage Location (required): </label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.item_storage_loc}
+            onChange={this.onChangeItemStorageLocation}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Item's Keywords (optional, separate with comma): </label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.item_keywords}
+            onChange={this.onChangeItemKeywords}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Item's Notes (optional): </label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.notes}
+            onChange={this.onChangeItemNotes}
+          />
+        </div>
+
+        <div className="form-check form-switch">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            value={this.state.item_checked_out}
+            onChange={this.onChangeItemCheckedOut}
+          />
+          <label>Checked out? </label>
+        </div>
+
+        <div className="form-group">
+          <input
+            type="submit"
+            value="Create Item"
+            className="btn btn-primary"
+          />
+        </div>
+      </form>
+    </div>
+  );
+}
+}
+
+
+
+
 export default withRouter(Edit);
