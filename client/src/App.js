@@ -16,14 +16,18 @@ const App = () => {
     <div>
       <Navbar />
       <div style={{width: 1250, margin: "auto"}}>
-      <Route exact path="/Home" component={Home} />
+        <Route exact path="/Home" component={Home} />
+        
         <Route exact path="/">
           <RecordList />
         </Route>
+        
         <Route path="/edit/:id" component={Edit} />
+        
         <Route path="/create">
           <Create />
         </Route>
+        
         <Route path="/item">
           <Item />
         </Route>
