@@ -48,7 +48,7 @@ const Navbar = () => {
               </NavLink>
               <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                 <li><NavLink className="dropdown-item" to="/users">Users</NavLink></li>
-                <li><NavLink className="dropdown-item" to="/item">Item</NavLink></li>
+                {/*}<li><NavLink className="dropdown-item" to="/item">Item</NavLink></li>{*/}
                 <li><hr className="dropdown-divider"/></li>
                 <li><NavLink className="dropdown-item" to="/system">System</NavLink></li>
               </ul>

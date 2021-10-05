@@ -29,9 +29,8 @@ const App = () => {
           <Create />
         </Route>
         
-        <Route path="/item">
-          <Item />
-        </Route>
+        <Route path="/item/:id" component={Item} />
+        
         <Route path="/system">
           <System />
         </Route>
