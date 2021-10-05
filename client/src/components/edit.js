@@ -8,15 +8,24 @@ class Edit extends Component {
   constructor(props) {
     super(props);
  
-    this.onChangePersonName = this.onChangePersonName.bind(this);
-    this.onChangePersonPosition = this.onChangePersonPosition.bind(this);
-    this.onChangePersonLevel = this.onChangePersonLevel.bind(this);
+    this.onChangeItemName = this.onChangeItemName.bind(this);
+    this.onChangeItemPictureUrl = this.onChangeItemPictureUrl.bind(this);
+    this.onChangeItemIdNumbers = this.onChangeItemIdNumbers.bind(this);
+    this.onChangeItemStorageLocation = this.onChangeItemStorageLocation.bind(this);
+    this.onChangeItemCheckedOut = this.onChangeItemCheckedOut.bind(this);
+    this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
+    this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
  
+ 
     this.state = {
-      person_name: "",
-      person_position: "",
-      person_level: "",
+      item_name: "",
+      item_picture_url: "",
+      item_id_numbers: "",
+      item_storage_loc: "",
+      item_checked_out: false,
+      item_keywords: "",
+      item_notes: "",
       records: [],
     };
   }
@@ -26,9 +35,13 @@ class Edit extends Component {
       .get("http://localhost:5000/record/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
-          person_name: response.data.person_name,
-          person_position: response.data.person_position,
-          person_level: response.data.person_level,
+          item_name: response.data.item_name,
+          item_picture_url: response.data.item_picture_url,
+          item_id_numbers: response.data.item_id_numbers,
+          item_storage_loc: response.data.item_storage_loc,
+          item_checked_out: response.data.item_checked_out,
+          item_keywords: response.data.item_keywords,
+          item_notes: response.data.item_notes,
         });
       })
       .catch(function (error) {
@@ -37,31 +50,59 @@ class Edit extends Component {
   }
  
   // These methods will update the state properties.
-  onChangePersonName(e) {
+  onChangeItemName(e) {
     this.setState({
-      person_name: e.target.value,
+      item_name: e.target.value,
     });
   }
- 
-  onChangePersonPosition(e) {
+
+  onChangeItemPictureUrl(e) {
     this.setState({
-      person_position: e.target.value,
+      item_picture_url: e.target.value,
     });
   }
- 
-  onChangePersonLevel(e) {
+
+  onChangeItemIdNumbers(e) {
     this.setState({
-      person_level: e.target.value,
+      item_id_numbers: e.target.value,
     });
   }
- 
+
+  onChangeItemStorageLocation(e) {
+    this.setState({
+      item_storage_loc: e.target.value,
+    });
+  }
+
+  onChangeItemCheckedOut(e) {
+    this.setState({
+      item_checked_out: e.target.value,
+    });
+  }
+
+  onChangeItemKeywords(e) {
+    this.setState({
+      item_keywords: e.target.value,
+    });
+  }
+
+  onChangeItemNotes(e) {
+    this.setState({
+      item_notes: e.target.value,
+    });
+  }
+
   // This function will handle the submission.
   onSubmit(e) {
     e.preventDefault();
     const newEditedperson = {
-      person_name: this.state.person_name,
-      person_position: this.state.person_position,
-      person_level: this.state.person_level,
+      item_name: this.state.item_name,
+      item_picture_url: this.state.item_picture_url,
+      item_id_numbers: this.state.item_id_numbers,
+      item_storage_loc: this.state.item_storage_loc,
+      item_checked_out: this.state.item_checked_out,
+      item_keywords: this.state.item_keywords,
+      item_notes: this.state.item_notes,
     };
     console.log(newEditedperson);
  
@@ -213,7 +254,7 @@ class Edit extends Component {
           <input
             type="text"
             className="form-control"
-            value={this.state.notes}
+            value={this.state.item_notes}
             onChange={this.onChangeItemNotes}
           />
         </div>
