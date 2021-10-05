@@ -10,6 +10,7 @@ import Home from "./Home";
 import Create from "./components/create";
 import RecordList from "./components/recordList";
 import Item from "./components/item";
+import System from "./components/system";
 
 const App = () => {
   return (
@@ -30,6 +31,9 @@ const App = () => {
         
         <Route path="/item">
           <Item />
+        </Route>
+        <Route path="/system">
+          <System />
         </Route>
       </div>
     </div>
