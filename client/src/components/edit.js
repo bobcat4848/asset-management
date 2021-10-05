@@ -16,7 +16,7 @@ class Edit extends Component {
     this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
     this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
- 
+
     this.state = {
       item_name: "",
       item_picture_url: "",
@@ -194,7 +194,7 @@ class Edit extends Component {
         <div className="form-group">
           <input
             type="submit"
-            value="Create Item"
+            value="Finish Edit"
             className="btn btn-primary"
           />
         </div>

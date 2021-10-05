@@ -7,6 +7,8 @@ const recordRoutes = express.Router();
 
 //This will help us connect to the database
 const dbo = require("../db/conn");
+var ObjectId = require('mongodb').ObjectId; 
+
 
 // This section will help you get a list of all the records.
 recordRoutes.route("/record").get(function (req, res) {
@@ -23,7 +25,7 @@ recordRoutes.route("/record").get(function (req, res) {
 // Get a specific item based on ID
 recordRoutes.route("/record/:id").get(function (req, res) {
   let db_connect = dbo.getDb("employees");
-  var myquery = { id: req.body.id };
+  var myquery = { _id: ObjectId(req.params.id) };
   db_connect.collection("records").findOne(myquery, function (err, obj) {
     if (err) throw err;
     res.json(obj);
@@ -50,7 +52,7 @@ recordRoutes.route("/record/add").post(function (req, res) {
 // This section will help you update a record by id.
 recordRoutes.route("/update/:id").post(function (req, res) {
   let db_connect = dbo.getDb("employees");
-  let myquery = { id: req.body.id };
+  var myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
     $set: {
       item_name: req.body.item_name,
@@ -73,7 +75,7 @@ recordRoutes.route("/update/:id").post(function (req, res) {
 // This section will help you delete a record
 recordRoutes.route("/:id").delete((req, res) => {
   let db_connect = dbo.getDb("employees");
-  var myquery = { id: req.body.id };
+  var myquery = { _id: ObjectId(req.params.id) };
   db_connect.collection("records").deleteOne(myquery, function (err, obj) {
     if (err) throw err;
     console.log("1 document deleted");
