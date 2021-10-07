@@ -2,8 +2,11 @@ import React, { Component } from "react";
 // This will require to npm install axios
 import axios from 'axios';
 import { withRouter } from "react-router";
+
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap"; 
  
-class Edit extends Component {
+class Item extends Component {
   // This is the constructor that stores the data.
   constructor(props) {
     super(props);
@@ -123,82 +126,40 @@ class Edit extends Component {
   return (
     <div style={{ marginTop: 20 }}>
       <h3>Item Details</h3>
-      <form onSubmit={this.onSubmit}>
+      {/*<form onSubmit={this.onSubmit}>*/}
+      <form class="row g-2">
+        <div class="col-1"><label>Name : </label></div>
+         <div class="col-auto">
+          <label><b> {this.state.item_name}</b> </label></div></form>
+      <form class="row g-2">
+        <div class="col-1"><label>Picture : </label></div>
+        <div class="col-auto"><label><b> 
+          {this.state.item_picture_url}</b> </label></div> </form>
+   
+        <form class="row g-2">
         <div className="form-group">
-          <label>Name of the item :  {this.state.item_name}</label>
+          <label>ID Number  : <b>{this.state.item_id_numbers}</b></label>
         </div>
         <div className="form-group">
-          <label>Item's Picture URL : </label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.item_picture_url}
-            onChange={this.onChangeItemPictureUrl}
-          />
-        </div>
-        <div className="form-group">
-          <label>Item's ID Numbers (optional, separate with comma): </label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.item_id_numbers}
-            onChange={this.onChangeItemIdNumbers}
-          />
-        </div>
-        <div className="form-group">
-          <label>Item's Storage Location (required): </label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.item_storage_loc}
-            onChange={this.onChangeItemStorageLocation}
-          />
+          <label>Storage Location : <b> {this.state.item_storage_loc}</b> </label>
         </div>
 
         <div className="form-group">
-          <label>Item's Keywords (optional, separate with comma): </label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.item_keywords}
-            onChange={this.onChangeItemKeywords}
-          />
+          <label>Keywords : <b>{this.state.item_keywords}</b></label>
         </div>
 
         <div className="form-group">
-          <label>Item's Notes (optional): </label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.item_notes}
-            onChange={this.onChangeItemNotes}
-          />
-        </div>
-
-        <div className="form-check form-switch">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            value={this.state.item_checked_out}
-            onChange={this.onChangeItemCheckedOut}
-          />
-          <label>Checked out? </label>
+          <label>Notes : <b>{this.state.item_notes} </b> </label>
         </div>
 
         <div className="form-group">
-          <input
-            type="submit"
-            value="Finish Edit"
-            className="btn btn-primary"
-          />
+          <label>Checked Out? : <b>{this.state.item_checked_out}</b></label>
         </div>
+
       </form>
     </div>
   );
 }
 }
 
-
-
-
-export default withRouter(Edit);
+export default withRouter(Item);
