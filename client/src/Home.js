@@ -1,5 +1,5 @@
 import React from "react";
-import PieChart from "./components/chart";
+import Charts from "./components/chart";
 //Compenent for the homepage of the web app.
 
 
@@ -7,7 +7,7 @@ import PieChart from "./components/chart";
 const Home = () => {
     return (
       <div style={{display: 'flex', justifyContent: 'center'}}>
-        <h1>Home Dashboard <br /><PieChart /></h1>
+        <h1>Home Dashboard <br /><Charts /></h1>
          
       </div>
     );
