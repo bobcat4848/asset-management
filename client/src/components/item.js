@@ -124,7 +124,12 @@ class Item extends Component {
  // This following section will display the form that takes the input from the user.
  render() {
   return (
+    
     <div style={{ marginTop: 20 }}>
+      {/*}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <h1 style={{ fontSize:10 }}> Hello World </h1> 
+      {*/}
       <h3>Item Details</h3>
       {/*<form onSubmit={this.onSubmit}>*/}
       <form class="row g-2">
@@ -132,31 +137,23 @@ class Item extends Component {
          <div class="col-auto">
           <label><b> {this.state.item_name}</b> </label></div></form>
       <form class="row g-2">
-        <div class="col-1"><label>Picture : </label></div>
-        <div class="col-auto"><label><b> 
-          {this.state.item_picture_url}</b> </label></div> </form>
-   
-        <form class="row g-2">
-        <div className="form-group">
-          <label>ID Number  : <b>{this.state.item_id_numbers}</b></label>
-        </div>
-        <div className="form-group">
-          <label>Storage Location : <b> {this.state.item_storage_loc}</b> </label>
-        </div>
-
-        <div className="form-group">
-          <label>Keywords : <b>{this.state.item_keywords}</b></label>
-        </div>
-
-        <div className="form-group">
-          <label>Notes : <b>{this.state.item_notes} </b> </label>
-        </div>
-
-        <div className="form-group">
-          <label>Checked Out? : <b>{this.state.item_checked_out}</b></label>
-        </div>
-
-      </form>
+        <div class="col-1"><label>Picture : </label></div>  
+        <div class="col-auto"><label><b> {this.state.item_picture_url}</b> </label></div> </form>
+      <form class="row g-2">
+        <div class="col-1"><label>ID Number : </label></div>
+        <div class="col-auto"><label><b> {this.state.item_id_numbers}</b> </label></div> </form>
+      <form class="row g-2">
+        <div class="col-1"><label>Location : </label></div>
+        <div class="col-auto"><label><b> {this.state.item_storage_loc}</b> </label></div> </form>
+      <form class="row g-2">
+        <div class="col-1"><label>Keywords : </label></div>
+        <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> </form>
+      <form class="row g-2">
+        <div class="col-1"><label>Notes : </label></div>
+        <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> </form>
+      <form class="row g-2">
+        <div class="col-1"><label>CheckOut? : </label></div>
+        <div class="col-auto"><label><b> {this.state.item_checked_out}</b> </label></div> </form>
     </div>
   );
 }
