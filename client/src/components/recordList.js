@@ -18,8 +18,8 @@ const Record = (props) => (
           props.deleteRecord(props.record._id);
         }}
       >
-         Delete 
-      </a> |
+        Delete |
+      </a>
       <Link to={"/item/" + props.record._id}>Details</Link>
     </td>
   </tr>
