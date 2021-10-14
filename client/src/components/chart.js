@@ -5,7 +5,7 @@ import * as React from "react";
 const PieChart = () => {
   return (
 <Chart
-  width={'400px'}
+  width={'300px'}
   height={'200px'}
   chartType="PieChart"
   loader={<div>Loading Chart</div>}
@@ -23,7 +23,7 @@ const PieChart = () => {
 };
 
   const Charts = () => {
-    return (<div style={{position: 'absolute', left: '30%', top: '20%',width: '50%'}}><span class="border border-primary"><PieChart /></span></div>
+    return (<div style={{position: 'absolute', left: '30%', top: '20%',width: '50%'}}><PieChart /></div>
     );
   };
 export default Charts;

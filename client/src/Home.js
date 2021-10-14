@@ -9,7 +9,7 @@ import RecordList from "./components/recordList";
 const Home = () => {
     return (
       <div>
-        <h1 style={{position: 'absolute', left: '40%', top: '10%'}}>Home Dashboard</h1>
+        <h1 style={{position: 'absolute', left: '40%', top: '10%', color:'black',stroke:'20px',textShadow: '1px 1px salmon'}}>Home Dashboard</h1>
         <Charts />
         <Chart2 />
         <br/>
