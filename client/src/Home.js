@@ -8,12 +8,9 @@ import RecordList from "./components/recordList";
 const Home = () => {
     return (
       <div>
-        <h1 style={{position: 'absolute', left: '40%', top: '15%', color:'black',stroke:'20px',textShadow: '1px 1px salmon'}}>Home Dashboard</h1>
-        <div style={{border: '2px solid black'}}>
+        <h1 style={{position: 'relative', color:'black',stroke:'20px',textShadow: '1px 1px salmon',textAlign:'center'}}>Home Dashboard</h1>
         <Charts />
-        </div>
         <RecordList />
-        
       </div>
     );
   };
