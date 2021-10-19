@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import { StyleSheet, Text, View } from "react-native";
 // This will require to npm install axios
 import axios from 'axios';
 import { withRouter } from "react-router";
@@ -124,39 +125,35 @@ class Item extends Component {
  // This following section will display the form that takes the input from the user.
  render() {
   return (
+    <div>
+    <h3 style={{ paddingLeft: 50}}>Item Details</h3>
+    <div style={{ paddingLeft: 50, display: 'flex', marginTop: 20, flexDirection: "row" }}>
+      <div><form style={{ paddingRight: 10,flex: 3, backgroundColor: "lightgrey" }} class="col">
+        <div class="col"><label>Name : </label></div>
+        <div class="col"><label>Picture : </label></div>  
+        <div class="col"><label>ID Number : </label></div>
+        <div class="col"><label>Location : </label></div>
+        <div class="col"><label>Notes : </label></div>
+        <div class="col"><label>Keywords : </label></div>
+        <div class="col"><label>Checked out? : </label></div>
+         </form></div>
+      <div>
+      <form style={{paddingLeft: 50 , flex: 4, }} class="col">
+       <div class="col-auto"><label><b> {this.state.item_name}</b> </label></div>
+        <div class="col"><label><b> {this.state.item_picture_url}</b> </label></div> 
+        <div class="col-auto"><label><b> {this.state.item_id_numbers}</b> </label></div> 
+        <div class="col-auto"><label><b> {this.state.item_storage_loc}</b> </label></div>
+        <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> 
+        <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> 
+        <div class="col-auto"><label><b> {this.state.item_checked_out}</b> </label></div> 
+      </form>
+      </div>  
+    </div>
     
-    <div style={{ marginTop: 20 }}>
-      {/*}
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-      <h1 style={{ fontSize:10 }}> Hello World </h1> 
-      {*/}
-      <h3>Item Details</h3>
-      {/*<form onSubmit={this.onSubmit}>*/}
-      <form class="row g-2">
-        <div class="col-1"><label>Name : </label></div>
-         <div class="col-auto">
-          <label><b> {this.state.item_name}</b> </label></div></form>
-      <form class="row g-2">
-        <div class="col-1"><label>Picture : </label></div>  
-        <div class="col-auto"><label><b> {this.state.item_picture_url}</b> </label></div> </form>
-      <form class="row g-2">
-        <div class="col-1"><label>ID Number : </label></div>
-        <div class="col-auto"><label><b> {this.state.item_id_numbers}</b> </label></div> </form>
-      <form class="row g-2">
-        <div class="col-1"><label>Location : </label></div>
-        <div class="col-auto"><label><b> {this.state.item_storage_loc}</b> </label></div> </form>
-      <form class="row g-2">
-        <div class="col-1"><label>Keywords : </label></div>
-        <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> </form>
-      <form class="row g-2">
-        <div class="col-1"><label>Notes : </label></div>
-        <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> </form>
-      <form class="row g-2">
-        <div class="col-1"><label>CheckOut? : </label></div>
-        <div class="col-auto"><label><b> {this.state.item_checked_out}</b> </label></div> </form>
     </div>
   );
 }
 }
+
 
 export default withRouter(Item);
