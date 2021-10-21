@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // This will require to npm install axios
 import axios from 'axios';
 import { withRouter } from "react-router";
-
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap"; 
  
@@ -12,15 +12,6 @@ class Item extends Component {
   constructor(props) {
     super(props);
  
-    this.onChangeItemName = this.onChangeItemName.bind(this);
-    this.onChangeItemPictureUrl = this.onChangeItemPictureUrl.bind(this);
-    this.onChangeItemIdNumbers = this.onChangeItemIdNumbers.bind(this);
-    this.onChangeItemStorageLocation = this.onChangeItemStorageLocation.bind(this);
-    this.onChangeItemCheckedOut = this.onChangeItemCheckedOut.bind(this);
-    this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
-    this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
     this.state = {
       item_name: "",
       item_picture_url: "",
@@ -50,104 +41,52 @@ class Item extends Component {
       .catch(function (error) {
         console.log(error);
       });
-  }
- 
-  // These methods will update the state properties.
-  onChangeItemName(e) {
-    this.setState({
-      item_name: e.target.value,
-    });
+
+      
+  
   }
 
-  onChangeItemPictureUrl(e) {
-    this.setState({
-      item_picture_url: e.target.value,
-    });
-  }
-
-  onChangeItemIdNumbers(e) {
-    this.setState({
-      item_id_numbers: e.target.value,
-    });
-  }
-
-  onChangeItemStorageLocation(e) {
-    this.setState({
-      item_storage_loc: e.target.value,
-    });
-  }
-
-  onChangeItemCheckedOut(e) {
-    this.setState({
-      item_checked_out: e.target.value,
-    });
-  }
-
-  onChangeItemKeywords(e) {
-    this.setState({
-      item_keywords: e.target.value,
-    });
-  }
-
-  onChangeItemNotes(e) {
-    this.setState({
-      item_notes: e.target.value,
-    });
-  }
-
-  // This function will handle the submission.
-  onSubmit(e) {
-    e.preventDefault();
-    const newEditedperson = {
-      item_name: this.state.item_name,
-      item_picture_url: this.state.item_picture_url,
-      item_id_numbers: this.state.item_id_numbers,
-      item_storage_loc: this.state.item_storage_loc,
-      item_checked_out: this.state.item_checked_out,
-      item_keywords: this.state.item_keywords,
-      item_notes: this.state.item_notes,
-    };
-    console.log(newEditedperson);
- 
-    // This will send a post request to update the data in the database.
-    axios
-      .post(
-        "http://localhost:5000/update/" + this.props.match.params.id,
-        newEditedperson
-      )
-      .then((res) => console.log(res.data));
- 
-    this.props.history.push("/");
-  }
- 
 // You can get access to the history object's properties and the closest <Route>'s match via the withRouter
 // higher-order component. This makes it easier for us to edit our records.
  // This following section will display the form that takes the input from the user.
  render() {
+
+  const mystyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Arial"
+  };
+
   return (
-    <div>
-    <h3 style={{ paddingLeft: 50}}>Item Details</h3>
-    <div style={{ paddingLeft: 50, display: 'flex', marginTop: 20, flexDirection: "row" }}>
-      <div><form style={{ paddingRight: 10,flex: 3, backgroundColor: "lightgrey" }} class="col">
+    <div style={{paddingLeft: 50}}>
+      
+
+    <h1 style={{ }}> Item Details </h1>
+    
+    <div style={{  display: 'flex', marginTop: 10, flexDirection: "row" }}>
+      <div><form style={{ paddingRight: 10, flex: 3, backgroundColor: "white" }} class="flex-item">
         <div class="col"><label>Name : </label></div>
         <div class="col"><label>Picture : </label></div>  
         <div class="col"><label>ID Number : </label></div>
-        <div class="col"><label>Location : </label></div>
-        <div class="col"><label>Notes : </label></div>
+        <div classname="col"><label>Location : </label></div>
+        <div class="column"><label>Notes : </label></div>
         <div class="col"><label>Keywords : </label></div>
-        <div class="col"><label>Checked out? : </label></div>
-         </form></div>
+        <div class="col">Checked out? : </div>
+        <Link to={"/edit/" + this.props.match.params.id}>Edit</Link>
+      </form></div>
+
       <div>
       <form style={{paddingLeft: 50 , flex: 4, }} class="col">
-       <div class="col-auto"><label><b> {this.state.item_name}</b> </label></div>
-        <div class="col"><label><b> {this.state.item_picture_url}</b> </label></div> 
-        <div class="col-auto"><label><b> {this.state.item_id_numbers}</b> </label></div> 
+        <div class="col-auto"><label><b> {this.state.item_name}</b> </label></div>
+        <div class="col-auto"><label><b> {this.state.item_picture_url}</b> </label></div> 
+        <div ><label><b> {this.state.item_id_numbers}</b> </label></div> 
         <div class="col-auto"><label><b> {this.state.item_storage_loc}</b> </label></div>
         <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> 
         <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> 
-        <div class="col-auto"><label><b> {this.state.item_checked_out}</b> </label></div> 
-      </form>
-      </div>  
+        <div ><label><b> {this.state.item_checked_out}</b> </label></div> 
+      </form></div>  
+      <img  style={{height: 200 }} src= "https://cdn11.bigcommerce.com/s-ufhcuzfxw9/images/stencil/500x659/products/11439/16934/MI-4100LXL__63851.1568214592.jpg?c=2"></img>
     </div>
     
     </div>
