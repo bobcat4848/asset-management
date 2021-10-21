@@ -8,7 +8,7 @@ import "bootstrap/dist/js/bootstrap";
 import { NavLink } from "react-router-dom";
 
 // Import logo from src/images
-import logo from "../images/logo.png"
+import logo from "../images/rasl_logo.png"
  
 // Here, we display our Navbar
 const Navbar = () => {
@@ -16,7 +16,9 @@ const Navbar = () => {
     <div style={{paddingBottom: 25}}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <NavLink className="navbar-brand" to="/">
-          <img src={logo} alt="" width="225" height="50"/>
+          <img src={logo} alt="Logo of RASL-Robotics and Autonomous Systems Lab" 
+                          width="130" height="60"
+                          style={{paddingLeft: 20}}/>
         </NavLink>
         <button
           className="navbar-toggler"
