@@ -11,6 +11,7 @@ import Create from "./components/create";
 import RecordList from "./components/recordList";
 import Item from "./components/item";
 import System from "./components/system";
+import Equipment from "./components/equipment";
 
 const App = () => {
   return (
@@ -33,6 +34,10 @@ const App = () => {
         
         <Route path="/system">
           <System />
+        </Route>
+
+        <Route path="/equipment">
+          <Equipment />
         </Route>
       </div>
     </div>
