@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import { StyleSheet, Text, View } from "react-native";
 // This will require to npm install axios
 import axios from 'axios';
 import { withRouter } from "react-router";
@@ -17,7 +16,7 @@ class Item extends Component {
       item_picture_url: "",
       item_id_numbers: "",
       item_storage_loc: "",
-      item_checked_out: false,
+      item_checked_out: "",
       item_keywords: "",
       item_notes: "",
       records: [],
@@ -64,8 +63,8 @@ class Item extends Component {
 
     <h1 style={{ }}> Item Details </h1>
     
-    <div style={{  display: 'flex', marginTop: 10, flexDirection: "row" }}>
-      <div><form style={{ paddingRight: 10, flex: 3, backgroundColor: "white" }} class="flex-item">
+    <div style={{  display: 'flex', marginTop: 10 , flexDirection: "row" }}>
+      <div><form style={{ flex: 3, backgroundColor: "white" }} class="flex-item">
         <div class="col"><label>Name : </label></div>
         <div class="col"><label>Picture : </label></div>  
         <div class="col"><label>ID Number : </label></div>
@@ -77,7 +76,7 @@ class Item extends Component {
       </form></div>
 
       <div>
-      <form style={{paddingLeft: 50 , flex: 4, }} class="col">
+      <form style={{paddingLeft: 50 }} class="flex-item">
         <div class="col-auto"><label><b> {this.state.item_name}</b> </label></div>
         <div class="col-auto"><label><b> {this.state.item_picture_url}</b> </label></div> 
         <div ><label><b> {this.state.item_id_numbers}</b> </label></div> 

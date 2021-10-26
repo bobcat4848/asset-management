@@ -13,6 +13,9 @@ export default class Create extends Component {
     this.onChangeItemCheckedOut = this.onChangeItemCheckedOut.bind(this);
     this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
     this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
+
+    this.onChangeItemTemp = this.onChangeItemTemp.bind(this);
+
     this.onSubmit = this.onSubmit.bind(this);
  
     this.state = {
@@ -23,6 +26,7 @@ export default class Create extends Component {
       item_checked_out: false,
       item_keywords: "",
       item_notes: "",
+      item_temp: "",
     };
   }
  
@@ -69,6 +73,11 @@ export default class Create extends Component {
     });
   }
 
+  onChangeItemTemp(e) {
+    this.setState({
+      item_temp: e.target.value,
+    });
+  }
 
   // This function will handle the submission.
   onSubmit(e) {
@@ -83,6 +92,7 @@ export default class Create extends Component {
       item_checked_out: this.state.item_checked_out,
       item_keywords: this.state.item_keywords,
       item_notes: this.state.item_notes,
+      item_temp: this.state.item_temp,
     };
  
     axios
@@ -98,6 +108,7 @@ export default class Create extends Component {
       item_checked_out: false,
       item_keywords: "",
       item_notes: "",
+      item_temp: "",
     });
   }
  
@@ -161,6 +172,16 @@ export default class Create extends Component {
               className="form-control"
               value={this.state.item_notes}
               onChange={this.onChangeItemNotes}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Item's TEMP: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.item_temp}
+              onChange={this.onChangeItemTemp}
             />
           </div>
 

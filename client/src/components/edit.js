@@ -15,17 +15,22 @@ class Edit extends Component {
     this.onChangeItemCheckedOut = this.onChangeItemCheckedOut.bind(this);
     this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
     this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
+
+    this.onChangeItemTemp = this.onChangeItemTemp.bind(this);
+
     this.onSubmit = this.onSubmit.bind(this);
+
 
     this.state = {
       item_name: "",
       item_picture_url: "",
       item_id_numbers: "",
       item_storage_loc: "",
-      item_checked_out: false,
+      item_checked_out: "",
       item_keywords: "",
       item_notes: "",
       records: [],
+      item_temp: "",
     };
   }
   // This will get the record based on the id from the database.
@@ -41,6 +46,7 @@ class Edit extends Component {
           item_checked_out: response.data.item_checked_out,
           item_keywords: response.data.item_keywords,
           item_notes: response.data.item_notes,
+          item_temp: response.data.item_temp,
         });
       })
       .catch(function (error) {
@@ -91,6 +97,12 @@ class Edit extends Component {
     });
   }
 
+  onChangeItemTemp(e) {
+    this.setState({
+      item_temp: e.target.value,
+    });
+  }
+
   // This function will handle the submission.
   onSubmit(e) {
     e.preventDefault();
@@ -102,6 +114,7 @@ class Edit extends Component {
       item_checked_out: this.state.item_checked_out,
       item_keywords: this.state.item_keywords,
       item_notes: this.state.item_notes,
+      item_temp: this.state.item_temp,
     };
     console.log(newEditedperson);
  
@@ -178,6 +191,16 @@ class Edit extends Component {
             className="form-control"
             value={this.state.item_notes}
             onChange={this.onChangeItemNotes}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Item's TEMP: </label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.item_temp}
+            onChange={this.onChangeItemTemp}
           />
         </div>
 
