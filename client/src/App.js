@@ -12,12 +12,17 @@ import RecordList from "./components/recordList";
 import Item from "./components/item";
 import System from "./components/system";
 import Equipment from "./components/equipment";
+import Login from "./Login";
+import Register from "./Register";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <div style={{width: 1250, margin: "auto"}}>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+
         <Route exact path="/Home" component={Home} />
         
         <Route exact path="/">

@@ -3,8 +3,6 @@ import Charts from "./components/Charts";
 import RecordList from "./components/recordList";
 //Compenent for the homepage of the web app.
 
-
-
 const Home = () => {
     return (
       <div>
