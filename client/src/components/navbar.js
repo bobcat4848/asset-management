@@ -13,6 +13,7 @@ import logo from "../images/rasl_logo.png"
 // Here, we display our Navbar
 const Navbar = () => {
   return (
+    <div style={{paddingBottom: 25}}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <NavLink className="navbar-brand" to="/home">
           <img src={logo} alt="Logo of RASL-Robotics and Autonomous Systems Lab" 
@@ -30,7 +31,7 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
- 
+
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -57,7 +58,8 @@ const Navbar = () => {
           </ul>
         </div>
       </nav>
+    </div>
   );
 };
- 
+
 export default Navbar;

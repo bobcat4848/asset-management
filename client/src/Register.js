@@ -40,11 +40,17 @@ function Register() {
 
   return (
     <form onSubmit={event => handleRegister(event)}>
-      <input required type="email"/>
-      <input required type="password"/>
-      <input type="submit" value="Register"/>
-      {loggedIn ? <Redirect to="/home" /> : null }
-    </form>
+    <div style={{width: 500}}>
+      <label for="emailInput" class="form-label">Email address</label>
+      <input type="email" required class="form-control" id="emailInput" placeholder="name@example.com" />
+      <br/>
+      <label for="passwordInput" class="form-label">Password</label>
+      <input type="password" required class="form-control" id="passwordInput" placeholder="123" />
+    </div>
+    <br/>
+    <button type="submit" className="btn btn-primary">Submit</button>
+    {loggedIn ? <Redirect to="/home" /> : null }
+  </form>
   )
 }
 

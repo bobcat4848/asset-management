@@ -1,5 +1,6 @@
 import { Redirect, useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const history = useHistory();
@@ -49,12 +50,18 @@ function Login() {
   }, [history]);
 
   return (
-    <form onSubmit={event => handleLogin(event)}>
-      <input required type="email"/>
-      <input required type="password"/>
-      <input type="submit" value="Submit"/>
-      {loggedIn ? <Redirect to="/home" /> : null }
-    </form>
+      <form onSubmit={event => handleLogin(event)}>
+        <div style={{width: 500}}>
+          <label for="emailInput" class="form-label">Email address</label>
+          <input type="email" required class="form-control" id="emailInput" placeholder="name@example.com" />
+          <br/>
+          <label for="passwordInput" class="form-label">Password</label>
+          <input type="password" required class="form-control" id="passwordInput" placeholder="123" />
+        </div>
+        <p>Don't have an account? <Link to="/register">Register here</Link></p>
+        <button type="submit" className="btn btn-primary">Submit</button>
+        {loggedIn ? <Redirect to="/home" /> : null }
+      </form>
   )
 }
 
