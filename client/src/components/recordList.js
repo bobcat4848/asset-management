@@ -11,16 +11,21 @@ const Record = (props) => (
     <td>{props.record.item_storage_loc}</td>
     <td>{props.record.item_checked_out}</td>
     <td>
-      <Link to={"/edit/" + props.record._id}>Edit</Link> |
+      <Link to={"/edit/" + props.record._id} className="btn btn-outline-primary">Edit</Link>
       <a
         href="/"
+        className="btn btn-outline-secondary"
+        role="button"
+        style={{marginLeft:5}}
         onClick={() => {
+          if(window.confirm('Are you sure you want to delete this item?')){
           props.deleteRecord(props.record._id);
+          }
         }}
       >
         Delete 
-      </a> |
-      <Link to={"/item/" + props.record._id}>Details</Link>
+      </a>
+      <Link to={"/item/" + props.record._id} className="btn btn-outline-primary" style={{marginLeft:5}}>Details</Link>
     </td>
   </tr>
 );

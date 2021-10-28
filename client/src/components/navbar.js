@@ -15,10 +15,10 @@ const Navbar = () => {
   return (
     <div style={{paddingBottom: 25}}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand" to="/home">
           <img src={logo} alt="Logo of RASL-Robotics and Autonomous Systems Lab" 
                           width="130" height="60"
-                          style={{paddingLeft: 20}}/>
+                          />
         </NavLink>
         <button
           className="navbar-toggler"
@@ -31,7 +31,7 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
- 
+
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -42,6 +42,11 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/equipment">
                 Equipment
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/create">
+                Add Item
               </NavLink>
             </li>
             <li className="nav-item dropdown">
@@ -61,5 +66,5 @@ const Navbar = () => {
     </div>
   );
 };
- 
+
 export default Navbar;

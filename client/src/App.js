@@ -9,20 +9,27 @@ import Edit from "./components/edit";
 import Home from "./Home";
 import Create from "./components/create";
 import RecordList from "./components/recordList";
+import { Redirect } from 'react-router';
 import Item from "./components/item";
 import System from "./components/system";
+import Equipment from "./components/equipment";
+import Login from "./Login";
+import Register from "./Register";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <div style={{width: 1250, margin: "auto"}}>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+
         <Route exact path="/Home" component={Home} />
         
-        <Route exact path="/">
-          <RecordList />
+        <Route exact path="/" >
+          <Redirect to="/home" />
         </Route>
-        
+
         <Route path="/edit/:id" component={Edit} />
         
         <Route path="/create">
@@ -33,6 +40,10 @@ const App = () => {
         
         <Route path="/system">
           <System />
+        </Route>
+
+        <Route path="/equipment">
+          <Equipment />
         </Route>
       </div>
     </div>
