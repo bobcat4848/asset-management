@@ -43,7 +43,9 @@ app.post("/register", async (req, res) => {
     console.log(user);
     const dbUser = new User({
       email: user.email,
-      password: user.password
+      password: user.password,
+      first_name: user.first_name,
+      last_name: user.last_name
     });
 
     dbUser.save();

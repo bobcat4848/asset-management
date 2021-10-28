@@ -11,7 +11,9 @@ function Register() {
     const form = e.target;
     const user = {
       email: form[0].value,
-      password: form[1].value
+      password: form[1].value,
+      first_name: form[2].value,
+      last_name: form[3].value
     }
 
     fetch("/register", {
@@ -41,11 +43,17 @@ function Register() {
   return (
     <form onSubmit={event => handleRegister(event)}>
     <div style={{width: 500}}>
-      <label for="emailInput" class="form-label">Email address</label>
-      <input type="email" required class="form-control" id="emailInput" placeholder="name@example.com" />
+      <label htmlFor="emailInput" className="form-label">Email address</label>
+      <input type="email" required className="form-control" id="emailInput" placeholder="name@example.com" />
       <br/>
-      <label for="passwordInput" class="form-label">Password</label>
-      <input type="password" required class="form-control" id="passwordInput" placeholder="123" />
+      <label htmlFor="passwordInput" className="form-label">Password</label>
+      <input type="password" required className="form-control" id="passwordInput" placeholder="123" />
+      <br/>
+      <label htmlFor="firstNameInput" className="form-label">First Name</label>
+      <input type="text" required className="form-control" id="firstNameInput" placeholder="John" />
+      <br/>
+      <label htmlFor="lastNameInput" className="form-label">Last Name</label>
+      <input type="text" required className="form-control" id="lastNameInput" placeholder="Doe" />
     </div>
     <br/>
     <button type="submit" className="btn btn-primary">Submit</button>

@@ -52,11 +52,11 @@ function Login() {
   return (
       <form onSubmit={event => handleLogin(event)}>
         <div style={{width: 500}}>
-          <label for="emailInput" class="form-label">Email address</label>
-          <input type="email" required class="form-control" id="emailInput" placeholder="name@example.com" />
+          <label htmlFor="emailInput" className="form-label">Email address</label>
+          <input type="email" required className="form-control" id="emailInput" placeholder="name@example.com" />
           <br/>
-          <label for="passwordInput" class="form-label">Password</label>
-          <input type="password" required class="form-control" id="passwordInput" placeholder="123" />
+          <label htmlFor="passwordInput" className="form-label">Password</label>
+          <input type="password" required className="form-control" id="passwordInput" placeholder="123" />
         </div>
         <p>Don't have an account? <Link to="/register">Register here</Link></p>
         <button type="submit" className="btn btn-primary">Submit</button>
