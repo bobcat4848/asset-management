@@ -126,7 +126,7 @@ class Edit extends Component {
       )
       .then((res) => console.log(res.data));
  
-    this.props.history.push("/");
+    this.props.history.push("/item/"+ this.props.match.params.id);
   }
  
 // You can get access to the history object's properties and the closest <Route>'s match via the withRouter
@@ -204,17 +204,17 @@ class Edit extends Component {
           />
         </div>
 
-        <div className="form-check form-switch">
+        <div style={{marginTop: 5}}>
           <input
             type="checkbox"
-            className="form-check-input"
+            //className="form-check-input"
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedOut}
           />
           <label>Checked out? </label>
         </div>
 
-        <div className="form-group">
+        <div style={{marginTop: 5}} className="form-group">
           <input
             type="submit"
             value="Finish Edit"

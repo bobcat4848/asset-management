@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const Record = (props) => (
   <tr>
     <td>{props.record.item_name}</td>
-    <td>{props.record.item_picture_url}</td>
     <td>{props.record.item_id_numbers}</td>
     <td>{props.record.item_storage_loc}</td>
     <td>{props.record.item_checked_out}</td>
@@ -79,11 +78,10 @@ export default class RecordList extends Component {
     return (
       <div>
         <h3>Equipment List</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
+        <table className="table table-striped" style={{ marginTop: 20, marginBottom: 150 }}>
           <thead>
             <tr>
               <th>Item</th>
-              <th>Picture</th>
               <th>Identification Numbers</th>
               <th>Storage Location</th>
               <th>Checked Out?</th>
