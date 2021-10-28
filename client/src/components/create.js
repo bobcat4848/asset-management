@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 // This will require to npm install axios
 import axios from 'axios';
-export default class Create extends Component {
+import { withRouter } from "react-router";
+
+class Create extends Component {
   // This is the constructor that stores the data.
   constructor(props) {
     super(props);
@@ -28,6 +30,7 @@ export default class Create extends Component {
       item_notes: "",
       item_temp: "",
     };
+
   }
  
   // These methods will update the state properties.
@@ -110,6 +113,9 @@ export default class Create extends Component {
       item_notes: "",
       item_temp: "",
     });
+    
+    //redirects to equipment list for now; will direct to item page later
+    this.props.history.push("/equipment");
   }
  
   // This following section will display the form that takes the input from the user.
@@ -207,3 +213,5 @@ export default class Create extends Component {
     );
   }
 }
+
+export default withRouter(Create);
