@@ -70,7 +70,7 @@ app.post("/login", (req, res) => {
         jwt.sign(
           payload,
           process.env.JWT_SECRET,
-          {expiresIn: 1},
+          {expiresIn: '30d'},
           (err, token) => {
             if (err) return res.json({message: err});
             return res.json({
