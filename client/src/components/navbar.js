@@ -44,6 +44,11 @@ const Navbar = () => {
                 Equipment
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/create">
+                Add Item
+              </NavLink>
+            </li>
             <li className="nav-item dropdown">
               <NavLink className="nav-link dropdown-toggle" to="/users" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Manage
