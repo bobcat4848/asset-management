@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 function Login() {
   const history = useHistory();
-  const isLoggedIn = useState();
+  const [loggedIn, setLoggedIn] = useState();
 
   function handleLogin(e) {
     e.preventDefault();
@@ -24,6 +24,8 @@ function Login() {
     .then(res => res.json())
     .then(data => {
       localStorage.setItem("token", data.token)
+      history.push("/home");
+      setLoggedIn(true);
     });
   }
 
@@ -35,11 +37,15 @@ function Login() {
     })
     .then(res => res.json())
     .then(data => {
+      console.log(data);
       if (data.isLoggedIn) {
         history.push("/home");
-        this.setState({isLoggedIn: true});
+        setLoggedIn(true);
       }
     })
+    return () => {
+      setLoggedIn({}); // remove warnings from 
+    };
   }, [history]);
 
   return (
@@ -47,7 +53,7 @@ function Login() {
       <input required type="email"/>
       <input required type="password"/>
       <input type="submit" value="Submit"/>
-      {isLoggedIn ? <Redirect to="/home" /> : null }
+      {loggedIn ? <Redirect to="/home" /> : null }
     </form>
   )
 }

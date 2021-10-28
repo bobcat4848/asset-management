@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 function Register() {
   const history = useHistory();
-  const isLoggedIn = useState();
+  const [loggedIn, setLoggedIn] = useState();
 
   function handleRegister(e) {
     e.preventDefault();
@@ -33,7 +33,7 @@ function Register() {
     .then(data => {
       if (data.isLoggedIn) {
         history.push("/home");
-        this.setState({isLoggedIn: true});
+        setLoggedIn(true);
       }
     })
   }, [history]);
@@ -43,7 +43,7 @@ function Register() {
       <input required type="email"/>
       <input required type="password"/>
       <input type="submit" value="Register"/>
-      {isLoggedIn ? <Redirect to="/home" /> : null }
+      {loggedIn ? <Redirect to="/home" /> : null }
     </form>
   )
 }

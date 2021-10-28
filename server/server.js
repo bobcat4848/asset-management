@@ -70,7 +70,7 @@ app.post("/login", (req, res) => {
         jwt.sign(
           payload,
           process.env.JWT_SECRET,
-          {expiresIn: 86400},
+          {expiresIn: 1},
           (err, token) => {
             if (err) return res.json({message: err});
             return res.json({
@@ -90,7 +90,6 @@ app.post("/login", (req, res) => {
 
 function verifyJWT(req, res, next) {
   const token = req.headers["x-access-token"]?.split(" ")[1];
-
   if (token) {
     jwt.verify(token, process.env.PASSPORTSECRET, (err, decoded) => {
       if (err) return res.json({

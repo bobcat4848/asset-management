@@ -13,12 +13,11 @@ import logo from "../images/rasl_logo.png"
 // Here, we display our Navbar
 const Navbar = () => {
   return (
-    <div style={{paddingBottom: 25}}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand" to="/home">
           <img src={logo} alt="Logo of RASL-Robotics and Autonomous Systems Lab" 
                           width="130" height="60"
-                          style={{paddingLeft: 20}}/>
+                          />
         </NavLink>
         <button
           className="navbar-toggler"
@@ -58,7 +57,6 @@ const Navbar = () => {
           </ul>
         </div>
       </nav>
-    </div>
   );
 };
  
