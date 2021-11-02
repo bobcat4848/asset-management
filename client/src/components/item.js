@@ -77,7 +77,7 @@ class Item extends Component {
         {this.state.item_storage_loc !=="" && <div ><label><b> {this.state.item_storage_loc}</b> </label></div>}
         {this.state.item_notes !=="" && <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> }
         {this.state.item_keywords !=="" && <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> }
-        <div ><label><b> {this.state.item_checked_out}</b> </label></div> 
+        {<div ><label><b> {this.state.item_checked_out}</b> </label></div> }
       </form></div>  
       <img  style={{height: 200 }} src= "https://cdn11.bigcommerce.com/s-ufhcuzfxw9/images/stencil/500x659/products/11439/16934/MI-4100LXL__63851.1568214592.jpg?c=2"></img>
     </div>

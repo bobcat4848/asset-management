@@ -81,7 +81,8 @@ class Edit extends Component {
 
   onChangeItemCheckedOut(e) {
     this.setState({
-      item_checked_out: e.target.value,
+        item_checked_out: e.target.value,
+      
     });
   }
 
@@ -195,7 +196,7 @@ class Edit extends Component {
         </div>
 
         <div className="form-group">
-          <label>Item's TEMP: </label>
+          <label>Item's TEMP:  </label>
           <input
             type="text"
             className="form-control"
@@ -204,18 +205,32 @@ class Edit extends Component {
           />
         </div>
 
-        <div style={{marginTop: 5}}>
+        {this.state.item_checked_out === "true" &&  <div style={{marginTop: 5}}>
           <input
+            
+            id = "myCheck"
             type="checkbox"
             //className="form-check-input"
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedOut}
           />
-          <label>Checked out? </label>
-        </div>
+          <label>Checked out? {this.state.item_checked_out}</label>
+        </div>}
+
+        {this.state.item_checked_out === "false" && <div style={{marginTop: 10}}>
+          <input
+            id = "myCheck"
+            type="checkbox"
+            //className="form-check-input"
+            value={this.state.item_checked_out}
+            onChange={this.onChangeItemCheckedOut}
+          />
+          <label>Checked out? {this.state.item_checked_out}</label>
+        </div>}
 
         <div style={{marginTop: 5}} className="form-group">
           <input
+          
             type="submit"
             value="Finish Edit"
             className="btn btn-primary"
