@@ -69,8 +69,8 @@ class Item extends Component {
         <div class="col"><label>Picture : </label></div>  
         <div class="col"><label>ID Number : </label></div>
         <div classname="col"><label>Location : </label></div>
-        <div class="column"><label>Notes : </label></div>
-        <div class="col"><label>Keywords : </label></div>
+        <div class="column"><label>Keywords : </label></div>
+        <div class="col"><label>Notes : </label></div>
         <div class="col">Checked out? : </div>
         <Link to={"/edit/" + this.props.match.params.id}>Edit</Link>
       </form></div>

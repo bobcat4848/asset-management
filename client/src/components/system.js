@@ -6,7 +6,7 @@ class System extends Component{
   render(){
     return(
       <div>
-          <div className="display-4">Administrator Actions</div>
+          <div className="display-5">Administrator Actions</div>
           <br/>
           <form>
           <h5>User Actions</h5>
@@ -28,14 +28,6 @@ class System extends Component{
 
         
           <br/>
-          <form>
-            <h5>Restrict User Access*</h5>
-            <input className="form-control" type="text" name="restrictuser" 
-                   placeholder="enter username(s)"
-                   style={{width: 230}}/>
-            <button className="btn btn-primary" type="submit" style={{marginTop: 5}}>Submit</button>
-            <p>*Multiple users can be entered with a space in between the usernames.</p>
-          </form>
           
           
           <form>
