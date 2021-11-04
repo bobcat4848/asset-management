@@ -20,6 +20,7 @@ class Item extends Component {
       item_keywords: "",
       item_notes: "",
       records: [],
+      item_temp: "",
     };
   }
   // This will get the record based on the id from the database.
@@ -35,21 +36,18 @@ class Item extends Component {
           item_checked_out: response.data.item_checked_out,
           item_keywords: response.data.item_keywords,
           item_notes: response.data.item_notes,
+          item_temp: response.data.item_temp,
         });
       })
       .catch(function (error) {
         console.log(error);
       });
-
-      
-  
   }
 
 // You can get access to the history object's properties and the closest <Route>'s match via the withRouter
 // higher-order component. This makes it easier for us to edit our records.
  // This following section will display the form that takes the input from the user.
  render() {
-
   const mystyle = {
     color: "white",
     backgroundColor: "DodgerBlue",
@@ -59,31 +57,27 @@ class Item extends Component {
 
   return (
     <div style={{paddingLeft: 50}}>
-      
-
-    <h1 style={{ }}> Item Details </h1>
+    <h1 style={{ }}> {this.state.item_name} </h1>
     
     <div style={{  display: 'flex', marginTop: 10 , flexDirection: "row" }}>
       <div><form style={{ flex: 3, backgroundColor: "white" }} class="flex-item">
-        <div class="col"><label>Name : </label></div>
-        <div class="col"><label>Picture : </label></div>  
-        <div class="col"><label>ID Number : </label></div>
-        <div classname="col"><label>Location : </label></div>
-        <div class="column"><label>Keywords : </label></div>
-        <div class="col"><label>Notes : </label></div>
+        {/*} <div class="col"><label>Name : </label></div>{*/}
+        {this.state.item_id_numbers !=="" && <div class="col"><label>ID Number : </label></div>}
+        {this.state.item_storage_loc !=="" && <div classname="col"><label>Location : </label></div>}
+        {this.state.item_notes !=="" && <div class="column"><label>Notes : </label></div>}
+        {this.state.item_keywords !=="" && <div class="col"><label>Keywords : </label></div>}
         <div class="col">Checked out? : </div>
         <Link to={"/edit/" + this.props.match.params.id}>Edit</Link>
       </form></div>
 
       <div>
       <form style={{paddingLeft: 50 }} class="flex-item">
-        <div class="col-auto"><label><b> {this.state.item_name}</b> </label></div>
-        <div class="col-auto"><label><b> {this.state.item_picture_url}</b> </label></div> 
-        <div ><label><b> {this.state.item_id_numbers}</b> </label></div> 
-        <div class="col-auto"><label><b> {this.state.item_storage_loc}</b> </label></div>
-        <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> 
-        <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> 
-        <div ><label><b> {this.state.item_checked_out}</b> </label></div> 
+        {/*}<div class="col-auto"><label><b> {this.state.item_name}</b> </label></div>{*/}
+        {this.state.item_id_numbers !=="" && <div ><label><b> {this.state.item_id_numbers}</b> </label></div>} 
+        {this.state.item_storage_loc !=="" && <div ><label><b> {this.state.item_storage_loc}</b> </label></div>}
+        {this.state.item_notes !=="" && <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> }
+        {this.state.item_keywords !=="" && <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> }
+        {<div ><label><b> {this.state.item_checked_out}</b> </label></div> }
       </form></div>  
       <img  style={{height: 200 }} src= "https://cdn11.bigcommerce.com/s-ufhcuzfxw9/images/stencil/500x659/products/11439/16934/MI-4100LXL__63851.1568214592.jpg?c=2"></img>
     </div>

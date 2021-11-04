@@ -114,7 +114,7 @@ class Create extends Component {
       item_temp: "",
     });
     
-    //redirects to equipment list for now; will direct to item details page later
+    //redirects to equipment list for now; will direct to item page later
     this.props.history.push("/equipment");
   }
  
