@@ -13,6 +13,7 @@ class Create extends Component {
     this.onChangeItemIdNumbers = this.onChangeItemIdNumbers.bind(this);
     this.onChangeItemStorageLocation = this.onChangeItemStorageLocation.bind(this);
     this.onChangeItemCheckedOut = this.onChangeItemCheckedOut.bind(this);
+    this.onChangeItemCheckedIn = this.onChangeItemCheckedIn.bind(this);
     this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
     this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
 
@@ -25,7 +26,7 @@ class Create extends Component {
       item_picture_url: "",
       item_id_numbers: "",
       item_storage_loc: "",
-      item_checked_out: false,
+      item_checked_out: "",
       item_keywords: "",
       item_notes: "",
       item_temp: "",
@@ -60,7 +61,13 @@ class Create extends Component {
 
   onChangeItemCheckedOut(e) {
     this.setState({
-      item_checked_out: e.target.value,
+      item_checked_out: "true",
+    });
+  }
+
+  onChangeItemCheckedIn(e) {
+    this.setState({
+      item_checked_out: "false",
     });
   }
 
@@ -108,7 +115,7 @@ class Create extends Component {
       item_picture_url: "",
       item_id_numbers: "",
       item_storage_loc: "",
-      item_checked_out: false,
+      item_checked_out: "",
       item_keywords: "",
       item_notes: "",
       item_temp: "",
@@ -191,15 +198,24 @@ class Create extends Component {
             />
           </div>
 
-          <div className="form-check form-switch">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              value={this.state.item_checked_out}
-              onChange={this.onChangeItemCheckedOut}
-            />
+          <div >
             <label>Checked out? </label>
           </div>
+
+          <div><input 
+            type="radio" name="my-input" id="yes"
+            value={this.state.item_checked_out}
+            onChange={this.onChangeItemCheckedOut}
+            //checked = {this.state.item_checked_out === "true"}
+          />
+         <label>Yes</label></div>
+          <div><input
+            type="radio" name="my-input" id="no"
+            value={this.state.item_checked_out}
+            onChange={this.onChangeItemCheckedIn}
+            //checked = {this.state.item_checked_out === "false"}
+          />
+         <label>No</label></div>
 
           <div className="form-group">
             <input

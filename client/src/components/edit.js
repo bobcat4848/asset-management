@@ -13,6 +13,7 @@ class Edit extends Component {
     this.onChangeItemIdNumbers = this.onChangeItemIdNumbers.bind(this);
     this.onChangeItemStorageLocation = this.onChangeItemStorageLocation.bind(this);
     this.onChangeItemCheckedOut = this.onChangeItemCheckedOut.bind(this);
+    this.onChangeItemCheckedIn = this.onChangeItemCheckedIn.bind(this);
     this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
     this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
 
@@ -26,7 +27,7 @@ class Edit extends Component {
       item_picture_url: "",
       item_id_numbers: "",
       item_storage_loc: "",
-      item_checked_out: "",
+      item_checked_out_old: "",
       item_keywords: "",
       item_notes: "",
       records: [],
@@ -43,6 +44,7 @@ class Edit extends Component {
           item_picture_url: response.data.item_picture_url,
           item_id_numbers: response.data.item_id_numbers,
           item_storage_loc: response.data.item_storage_loc,
+          item_checked_out_old: response.data.item_checked_out,
           item_checked_out: response.data.item_checked_out,
           item_keywords: response.data.item_keywords,
           item_notes: response.data.item_notes,
@@ -81,7 +83,14 @@ class Edit extends Component {
 
   onChangeItemCheckedOut(e) {
     this.setState({
-        item_checked_out: e.target.value,
+        item_checked_out: "true",
+      
+    });
+  }
+
+  onChangeItemCheckedIn(e) {
+    this.setState({
+        item_checked_out: "false",
       
     });
   }
@@ -135,7 +144,7 @@ class Edit extends Component {
  // This following section will display the form that takes the input from the user.
  render() {
   return (
-    <div style={{ marginTop: 20 }}>
+    <div style={{ marginTop: 20, marginBottom: 50}}>
       <h3>Edit Record</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
@@ -204,30 +213,25 @@ class Edit extends Component {
             onChange={this.onChangeItemTemp}
           />
         </div>
-
-        {this.state.item_checked_out === "true" &&  <div style={{marginTop: 5}}>
-          <input
-            
-            id = "myCheck"
-            type="checkbox"
-            //className="form-check-input"
+              
+         <div><label style={{paddingRight : 5}}>Currently checked out? </label>
+         {this.state.item_checked_out_old === "true" && <label><b> Yes</b></label>}
+         {this.state.item_checked_out_old !== "true" && <label><b> No </b></label>}
+         <div><input 
+            type="radio" name="my-input" id="yes"
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedOut}
+            checked = {this.state.item_checked_out === "true"}
           />
-          <label>Checked out? {this.state.item_checked_out}</label>
-        </div>}
-
-        {this.state.item_checked_out === "false" && <div style={{marginTop: 10}}>
-          <input
-            id = "myCheck"
-            type="checkbox"
-            //className="form-check-input"
+         <label>Yes</label></div>
+          <div><input
+            type="radio" name="my-input" id="no"
             value={this.state.item_checked_out}
-            onChange={this.onChangeItemCheckedOut}
+            onChange={this.onChangeItemCheckedIn}
+            checked = {this.state.item_checked_out === "false"}
           />
-          <label>Checked out? {this.state.item_checked_out}</label>
-        </div>}
-
+         <label>No</label></div>
+        </div>
         <div style={{marginTop: 5}} className="form-group">
           <input
           
