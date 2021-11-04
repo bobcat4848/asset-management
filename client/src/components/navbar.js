@@ -1,5 +1,7 @@
 import React from "react";
- 
+import { Redirect, useHistory } from 'react-router';
+import { useEffect, useState } from 'react';
+
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap"; 
@@ -10,11 +12,21 @@ import { NavLink } from "react-router-dom";
 // Import logo from src/images
 import logo from "../images/rasl_logo.png"
  
+function useForceUpdate(){
+  const [loggedIn, setLoggedIn] = useState();
+  return () => setLoggedIn(!loggedIn); // update the state to force render
+}
+
 // Here, we display our Navbar
-const Navbar = () => {
+const Navbar = ({loggedIn}) => {
+  //const [loggedIn, setLoggedIn] = useState();
+  //const forceUpdate = useForceUpdate();
+
+
+
   return (
     <div style={{paddingBottom: 25}}>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav id="navbar" className="navbar navbar-expand-lg navbar-dark bg-primary">
         <NavLink className="navbar-brand" to="/home">
           <img src={logo} alt="Logo of RASL-Robotics and Autonomous Systems Lab" 
                           width="130" height="60"
@@ -49,16 +61,15 @@ const Navbar = () => {
                 Add Item
               </NavLink>
             </li>
-            <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="/users" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Manage
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/system">
+                System
               </NavLink>
-              <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><NavLink className="dropdown-item" to="/users">Users</NavLink></li>
-                {/*}<li><NavLink className="dropdown-item" to="/item">Item</NavLink></li>{*/}
-                <li><hr className="dropdown-divider"/></li>
-                <li><NavLink className="dropdown-item" to="/system">System</NavLink></li>
-              </ul>
+            </li>
+            <li className="nav-item" id="signout">
+              <NavLink onClick={deleteSignOut} className="nav-link" to="/login">
+                Sign Out
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -66,5 +77,11 @@ const Navbar = () => {
     </div>
   );
 };
+
+function deleteSignOut() {
+  localStorage.clear("token");
+  var elem = document.getElementById("signout");
+  elem.style.display = "none";
+}
 
 export default Navbar;

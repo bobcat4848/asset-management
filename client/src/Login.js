@@ -26,6 +26,7 @@ function Login() {
     .then(data => {
       localStorage.setItem("token", data.token)
       history.push("/home");
+      addSignOutButton();
       setLoggedIn(true);
     });
   }
@@ -63,6 +64,11 @@ function Login() {
         {loggedIn ? <Redirect to="/home" /> : null }
       </form>
   )
+}
+
+function addSignOutButton() {
+  var elem = document.getElementById("signout");
+  elem.style.display = "block";
 }
 
 export default Login;
