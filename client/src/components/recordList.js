@@ -11,6 +11,7 @@ const Record = (props) => (
     <td>{props.record.item_checked_out}</td>
     <td>
       <Link to={"/edit/" + props.record._id} className="btn btn-outline-primary">Edit</Link>
+      
       <a
         href="/"
         className="btn btn-outline-secondary"
