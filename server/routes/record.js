@@ -32,6 +32,16 @@ recordRoutes.route("/record/:id").get(function (req, res) {
   });
 });
 
+// Get a specific item based on ID
+recordRoutes.route("/record/:item_name").get(function (req, res) {
+  let db_connect = dbo.getDb("employees");
+  var myquery = { item_name: ObjectId(req.params.item_name) };
+  db_connect.collection("records").findMany(myquery, function (err, obj) {
+    if (err) throw err;
+    res.json(obj);
+  });
+});
+
 // This section will help you create a new record.
 recordRoutes.route("/record/add").post(function (req, res) {
   let db_connect = dbo.getDb("employees");
