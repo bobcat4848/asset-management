@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 const Record = (props) => (
+
   <tr>
     <td>{props.record.item_name}</td>
     <td>{props.record.item_id_numbers}</td>
@@ -60,7 +61,7 @@ export default class RecordList extends Component {
       record: this.state.records.filter((el) => el._id !== id),
     });
   }
- 
+  
   // This method will map out the users on the table
   recordList() {
     return this.state.records.map((currentrecord) => {
@@ -78,6 +79,11 @@ export default class RecordList extends Component {
   render() {
     return (
       <div>
+        {/*test button for sorting: not working yet*/}
+         <button className="btn btn-outline-primary" type="button"
+        onClick={() => {
+          alert("Test Success!");
+        }}>Sort</button>
         <h3>Equipment List</h3>
         <table className="table table-striped" style={{ marginTop: 20, marginBottom: 150 }}>
           <thead>
