@@ -143,98 +143,72 @@ class Edit extends Component {
 // higher-order component. This makes it easier for us to edit our records.
  // This following section will display the form that takes the input from the user.
  render() {
+
   return (
-    <div style={{ marginTop: 20, marginBottom: 50}}>
+    <div style={{ marginTop: -10, paddingBottom: 100}}>
       <h3>Edit Record</h3>
       <form onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label>Name of the item (required): </label>
+        <div>
+          <label><b>Name:</b> </label>
           <input
-            type="text"
             className="form-control"
             value={this.state.item_name}
-            onChange={this.onChangeItemName}
-          />
-        </div>
-        <div className="form-group">
-          <label>Item's Picture URL (optional): </label>
+            onChange={this.onChangeItemName}/></div>
+        <div>
+          <label><b>ID Numbers: </b></label>
           <input
-            type="text"
-            className="form-control"
-            value={this.state.item_picture_url}
-            onChange={this.onChangeItemPictureUrl}
-          />
-        </div>
-        <div className="form-group">
-          <label>Item's ID Numbers (optional, separate with comma): </label>
-          <input
-            type="text"
             className="form-control"
             value={this.state.item_id_numbers}
-            onChange={this.onChangeItemIdNumbers}
-          />
-        </div>
-        <div className="form-group">
-          <label>Item's Storage Location (required): </label>
+            onChange={this.onChangeItemIdNumbers}/> </div>
+        <div>
+          <label><b> Storage Location: </b></label>
           <input
-            type="text"
             className="form-control"
             value={this.state.item_storage_loc}
-            onChange={this.onChangeItemStorageLocation}
-          />
-        </div>
+            onChange={this.onChangeItemStorageLocation}/> </div>
 
-        <div className="form-group">
-          <label>Item's Keywords (optional, separate with comma): </label>
+        <div>
+          <label><b>Search Keywords :</b> </label>
           <input
-            type="text"
             className="form-control"
             value={this.state.item_keywords}
-            onChange={this.onChangeItemKeywords}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Item's Notes (optional): </label>
+            onChange={this.onChangeItemKeywords}/> </div>
+        <div>
+          <label><b>Notes </b>: </label>
           <input
-            type="text"
             className="form-control"
             value={this.state.item_notes}
-            onChange={this.onChangeItemNotes}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Item's TEMP:  </label>
+            onChange={this.onChangeItemNotes}/> </div>
+        <div>
+          <label><b>Picture URL:</b> </label>
           <input
-            type="text"
+            className="form-control"
+            value={this.state.item_picture_url}
+            onChange={this.onChangeItemPictureUrl}/> </div>
+        <div>
+          <label><b>Item's TEMP:  </b></label>
+          <input
             className="form-control"
             value={this.state.item_temp}
-            onChange={this.onChangeItemTemp}
-          />
-        </div>
-              
-         <div><label style={{paddingRight : 5}}>Currently checked out? </label>
-         {this.state.item_checked_out_old === "true" && <label><b> Yes</b></label>}
-         {this.state.item_checked_out_old !== "true" && <label><b> No </b></label>}
-         <div><input 
+            onChange={this.onChangeItemTemp}/></div>
+        <div>
+          <label style={{paddingRight : 5}}><b>Currently checked out? </b></label>
+          {this.state.item_checked_out_old === "true" && <label> Yes</label>}
+          {this.state.item_checked_out_old !== "true" && <label> No </label>}
+          <div> <input 
             type="radio" name="my-input" id="yes"
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedOut}
-            checked = {this.state.item_checked_out === "true"}
-          />
-         <label>Yes</label></div>
-          <div><input
+            checked = {this.state.item_checked_out === "true"}/>
+            <label>Yes</label></div>
+          <div> <input
             type="radio" name="my-input" id="no"
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedIn}
-            checked = {this.state.item_checked_out === "false"}
-          />
-         <label>No</label></div>
-        </div>
+            checked = {this.state.item_checked_out === "false"}/>
+           <label>No</label></div></div>
         <div style={{marginTop: 5}} className="form-group">
           <input
-          
             type="submit"
             value="Finish Edit"
             className="btn btn-primary"

@@ -56,16 +56,16 @@ class Item extends Component {
   };
 
   return (
-    <div style={{paddingLeft: 50}}>
+    <div style={{paddingLeft: -10}}>
     <h1 style={{ }}> {this.state.item_name} </h1>
     
-    <div style={{  display: 'flex', marginTop: 10 , flexDirection: "row" }}>
+    <div style={{  display: 'flex', marginTop: 0 , flexDirection: "row" }}>
       <div><form style={{ flex: 3, backgroundColor: "white" }} class="flex-item">
         {/*} <div class="col"><label>Name : </label></div>{*/}
         {this.state.item_id_numbers !=="" && <div class="col"><label>ID Number : </label></div>}
-        {this.state.item_storage_loc !=="" && <div classname="col"><label>Location : </label></div>}
+        {this.state.item_storage_loc !=="" && <div classname="col"><label>Storage Location : </label></div>}
         {this.state.item_notes !=="" && <div class="column"><label>Notes : </label></div>}
-        {this.state.item_keywords !=="" && <div class="col"><label>Keywords : </label></div>}
+        {this.state.item_keywords !=="" && <div class="col"><label>Search Keywords : </label></div>}
         <div class="col"><label>Checked out? :</label> </div>
         <Link to={"/edit/" + this.props.match.params.id}>Edit</Link>
       </form></div>
