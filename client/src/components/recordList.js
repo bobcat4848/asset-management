@@ -35,7 +35,10 @@ export default class RecordList extends Component {
   constructor(props) {
     super(props);
     this.deleteRecord = this.deleteRecord.bind(this);
-    this.state = { records: [] };
+    this.state = { 
+      records: [], 
+      direction: 'asc'
+    };
   }
  
   // This method will get the data from the database.
@@ -50,15 +53,17 @@ export default class RecordList extends Component {
       });
   }
  
-  //this method sorts the records by name, in ascending order.
-  sortName(){
+  //This method will sort the records
+  sortRecords(fieldName){
+    //toggles between ascending and descending order
+    this.state.direction === 'asc' ? this.setState({direction: 'desc'}) : this.setState({direction: 'asc'})
     this.setState({
       record: this.state.records.sort((a, b) => {
-        if (a.item_name.toLowerCase() < b.item_name.toLowerCase()) {
-          return -1;
+        if (a[fieldName].toLowerCase() < b[fieldName].toLowerCase()) {
+          return this.state.direction === 'asc' ? -1 : 1;
         }
-        if (a.item_name.toLowerCase() > b.item_name.toLowerCase()) {
-          return 1;
+        if (a[fieldName].toLowerCase() > b[fieldName].toLowerCase()) {
+          return this.state.direction === 'asc' ? 1 : -1;
         }
         return 0;
       }) 
@@ -94,17 +99,19 @@ export default class RecordList extends Component {
   render() {
     return (
       <div>
-         <button className="btn btn-outline-primary" type="button"
-        onClick={() => {this.sortName();}}>Sort
-        </button>
         <h3>Equipment List</h3>
         <table className="table table-striped" style={{ marginTop: 20, marginBottom: 150 }}>
           <thead>
             <tr>
-              <th role="button" onClick={() =>{this.sortName();}}>Item</th>
-              <th>Identification Numbers</th>
-              <th>Storage Location</th>
-              <th>Checked Out?</th>
+              <th role="button" 
+              onClick={() => {this.sortRecords('item_name');}}
+                >Item</th>
+              <th role="button" 
+              onClick={() => {this.sortRecords('item_id_numbers');}}>Identification Numbers</th>
+              <th role="button" 
+              onClick={() => {this.sortRecords('item_storage_loc');}}>Storage Location</th>
+              <th role="button" 
+              onClick={() => {this.sortRecords('item_checked_out');}}>Checked Out?</th>
               <th>Action</th>
             </tr>
           </thead>
