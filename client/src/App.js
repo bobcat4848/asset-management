@@ -20,6 +20,8 @@ import Register from "./Register";
 const App = () => {
   const history = useHistory();
   const [loggedIn, setLoggedIn] = useState();
+  const [firstName, setFirstName] = useState("first name");
+  const [lastName, setLastName] = useState("last name");
   
   useEffect(() => {
     fetch("/isUserAuth", {
@@ -32,10 +34,14 @@ const App = () => {
       console.log(data);
       if (data.isLoggedIn) {
         setLoggedIn(true);
+        setFirstName(data.first_name);
+        setLastName(data.last_name);
       }
     })
     return () => {
       setLoggedIn({}); // remove warnings from 
+      setFirstName({});
+      setLastName({});
     };
   }, [history]);
 
