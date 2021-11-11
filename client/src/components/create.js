@@ -128,7 +128,7 @@ class Create extends Component {
   // This following section will display the form that takes the input from the user.
   render() {
     return (
-      <div style={{ marginTop: -10,paddingBottom: 100 }}>
+      <div  style={{ marginTop: -10,marginLeft: 25, paddingBottom: 100}}>
         <h3>Create New Record</h3>
         <form onSubmit={this.onSubmit}>
         <div>

@@ -5,12 +5,13 @@ import "bootstrap/dist/js/bootstrap";
 class System extends Component{
   render(){
     return(
-      <div>
+      <div style={{marginLeft:25}}>
           <div className="display-4">Administrator Actions</div>
           <br/>
           <form>
           <h5>User Actions</h5>
           <input type="text" name="usersearch"
+                 autoComplete="off"
                  placeholder="enter username" 
                  className="form-control"
                  style={{width: 230}}/>
@@ -30,23 +31,24 @@ class System extends Component{
           <br/>
           <form>
             <h5>Restrict User Access*</h5>
-            <input className="form-control" type="text" name="restrictuser" 
-                   placeholder="enter username(s)"
-                   style={{width: 230}}/>
+            <input type="text" name="usersearch"
+                 autoComplete="off"
+                 placeholder="enter username" 
+                 className="form-control"
+                 style={{width: 230}}/>
             <button className="btn btn-primary" type="submit" style={{marginTop: 5}}>Submit</button>
             <p>*Multiple users can be entered with a space in between the usernames.</p>
           </form>
-          
           
           <form>
             <h5>Create User</h5>
             <div class="form-group">
               <label for="newuser">Username: </label>
-              <input className="form-control" name="newuser" id="newuser" type="text" style={{width: 230}}/>
+              <input autocomplete="off" className="form-control" name="newuser" id="newuser" type="text" style={{width: 230}}/>
             </div>
             <div className="form-group">
               <label for="newpword">Password: </label>
-              <input className="form-control" name="newpword" id="newpword" type="password" style={{width: 230}}/>
+              <input className="form-control" name="newpword" id="newpword" type="text" style={{width: 230}}/>
             </div>
             <button className="btn btn-primary" type="submit" style={{marginTop: 5}}>Submit</button>
           </form>

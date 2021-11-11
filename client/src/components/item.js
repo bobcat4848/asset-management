@@ -55,11 +55,12 @@ class Item extends Component {
     fontFamily: "Arial"
   };
 
+  
   return (
-    <div style={{paddingLeft: -10}}>
+    <div style={{marginTop: -10, marginLeft: 25, paddingBottom: 100,}}>
     <h1 style={{ }}> {this.state.item_name} </h1>
-    
-    <div style={{  display: 'flex', marginTop: 0 , flexDirection: "row" }}>
+   
+    <div style={{  display: 'flex',  flexDirection: "row" }}>
       <div><form style={{ flex: 3, backgroundColor: "white" }} class="flex-item">
         {/*} <div class="col"><label>Name : </label></div>{*/}
         {this.state.item_id_numbers !=="" && <div class="col"><label>ID Number : </label></div>}
@@ -67,18 +68,18 @@ class Item extends Component {
         {this.state.item_notes !=="" && <div class="column"><label>Notes : </label></div>}
         {this.state.item_keywords !=="" && <div class="col"><label>Search Keywords : </label></div>}
         <div class="col"><label>Checked out? :</label> </div>
+        {this.state.item_checked_out === "true" && <div class="col"><label>Being Used by :</label> </div>}
         <Link to={"/edit/" + this.props.match.params.id}>Edit</Link>
       </form></div>
 
       <div>
       <form style={{paddingLeft: 50 }} class="flex-item">
-        {/*}<div class="col-auto"><label><b> {this.state.item_name}</b> </label></div>{*/}
         {this.state.item_id_numbers !=="" && <div ><label><b> {this.state.item_id_numbers}</b> </label></div>} 
         {this.state.item_storage_loc !=="" && <div ><label><b> {this.state.item_storage_loc}</b> </label></div>}
         {this.state.item_notes !=="" && <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> }
         {this.state.item_keywords !=="" && <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> }
-        {/*<div ><label><b> {this.state.item_checked_out}</b> </label></div> */}
         {this.state.item_checked_out === "true" && <label><b> Yes</b></label>}
+        {this.state.item_checked_out === "true" && <div><label><b> TEST EMAIL</b></label></div>}
          {this.state.item_checked_out !== "true" && <label><b> No </b></label>}
       </form></div>  
       <img  style={{height: 200 }} src= "https://cdn11.bigcommerce.com/s-ufhcuzfxw9/images/stencil/500x659/products/11439/16934/MI-4100LXL__63851.1568214592.jpg?c=2"></img>

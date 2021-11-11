@@ -3,6 +3,14 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { withRouter } from "react-router";
  
+/*
+cloudinary = require('cloudinary').v2;
+cloudinary.config({ 
+  cloud_name: 'dvhjabwzc', 
+  api_key: '963632584978256', 
+  api_secret: 'FTwB1KeFrtmdjGrZxUB1XfvPdO8' 
+});
+*/
 class Edit extends Component {
   // This is the constructor that stores the data.
   constructor(props) {
@@ -145,7 +153,7 @@ class Edit extends Component {
  render() {
 
   return (
-    <div style={{ marginTop: -10, paddingBottom: 100}}>
+    <div style={{ marginTop: -10,marginLeft: 25, paddingBottom: 100}}>
       <h3>Edit Record</h3>
       <form onSubmit={this.onSubmit}>
         <div>
