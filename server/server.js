@@ -38,7 +38,6 @@ app.post("/register", async (req, res) => {
   if (takenEmail) {
     res.json({message: "Email has already been taken."});
   } else {
-    console.log(req.body);
     user.password = await bcrypt.hash(req.body.password, 10);
     console.log(user);
     const dbUser = new User({
@@ -68,6 +67,8 @@ app.post("/login", (req, res) => {
         const payload = {
           id: dbUser._id,
           email: dbUser.email,
+          first_name: dbUser.first_name,
+          last_name: dbUser.last_name
         }
         jwt.sign(
           payload,
@@ -101,6 +102,8 @@ function verifyJWT(req, res, next) {
       req.user = {};
       req.user.id = decoded.id;
       req.user.email = decoded.email;
+      req.user.first_name = decoded.first_name;
+      req.user.last_name = decoded.last_name;
       next();
     })
   } else {
@@ -109,7 +112,7 @@ function verifyJWT(req, res, next) {
 }
 
 app.get("/isUserAuth", verifyJWT, (req, res) => {
-  return res.json({isLoggedIn: true, email: req.user.email});
+  return res.json({isLoggedIn: true, email: req.user.email, first_name: req.user.first_name, last_name: req.user.last_name});
 })
 
 
