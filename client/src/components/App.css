@@ -1,0 +1,7 @@
+#myInput {
+    width: 70%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 8px 10px 10px 20px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 0px; /* Add some space below the input */
+  }

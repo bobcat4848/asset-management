@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // This will require to npm install axios
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import './App.css';
 
 const Record = (props) => (
 
@@ -49,7 +50,30 @@ export default class RecordList extends Component {
         console.log(error);
       });
   }
- 
+  //this method searched the records by a user search
+  
+  searchItem() {
+    // Declare variables
+    
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
   //this method sorts the records by name, in ascending order.
   sortName(){
     this.setState({
@@ -94,11 +118,16 @@ export default class RecordList extends Component {
   render() {
     return (
       <div>
-         <button className="btn btn-outline-primary" type="button"
-        onClick={() => {this.sortName();}}>Sort
-        </button>
-        <h3>Equipment List</h3>
-        <table className="table table-striped" style={{ marginTop: 20, marginBottom: 150 }}>
+        <h3>Equipment List <input
+    type="text"
+    id="myInput"
+    onKeyUp={() => {this.searchItem();}}
+    placeholder="Search for items.."
+  /><button className="btn btn-outline-primary" type="button"
+  onClick={() => {this.sortName();}}>Sort
+  </button></h3>
+        
+        <table id= "myTable" className="table table-striped" style={{ marginTop: 20, marginBottom: 150 }}>
           <thead>
             <tr>
               <th role="button" onClick={() =>{this.sortName();}}>Item</th>
