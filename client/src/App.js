@@ -31,7 +31,6 @@ const App = () => {
     .then(data => {
       console.log(data);
       if (data.isLoggedIn) {
-        history.push("/home");
         setLoggedIn(true);
       }
     })
