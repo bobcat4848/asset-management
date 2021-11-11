@@ -30,7 +30,9 @@ const Home = () => {
     height={240}
     src="https://charts.mongodb.com/charts-project-0-gjoqf/embed/charts?id=55872d97-b4c1-4c64-ae35-d3905d939a73&maxDataAge=3600&theme=dark&autoRefresh=true"
   />
-        <RecordList />
+        <div className = "container">
+          <RecordList />
+        </div>  
       </div>
     );
   };

@@ -50,6 +50,22 @@ export default class RecordList extends Component {
       });
   }
  
+  //this method sorts the records by name, in ascending order.
+  sortName(){
+    this.setState({
+      record: this.state.records.sort((a, b) => {
+        if (a.item_name.toLowerCase() < b.item_name.toLowerCase()) {
+          return -1;
+        }
+        if (a.item_name.toLowerCase() > b.item_name.toLowerCase()) {
+          return 1;
+        }
+        return 0;
+      }) 
+      
+    })
+  }
+
   // This method will delete a record based on the method
   deleteRecord(id) {
     axios.delete("http://localhost:5000/" + id).then((response) => {
@@ -78,16 +94,14 @@ export default class RecordList extends Component {
   render() {
     return (
       <div>
-        {/*test button for sorting: not working yet*/}
          <button className="btn btn-outline-primary" type="button"
-        onClick={() => {
-          alert("Test Success!");
-        }}>Sort</button>
+        onClick={() => {this.sortName();}}>Sort
+        </button>
         <h3>Equipment List</h3>
         <table className="table table-striped" style={{ marginTop: 20, marginBottom: 150 }}>
           <thead>
             <tr>
-              <th>Item</th>
+              <th role="button" onClick={() =>{this.sortName();}}>Item</th>
               <th>Identification Numbers</th>
               <th>Storage Location</th>
               <th>Checked Out?</th>
