@@ -58,7 +58,7 @@ export default class RecordList extends Component {
   searchItem() {
     // Declare variables
     
-    var input, filter, table, tr, td, i, txtValue;
+    var input, filter, table, tr, td1, i, itemName,td2,td3,td4,id,storageLoc,checkedOut;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
@@ -66,16 +66,37 @@ export default class RecordList extends Component {
   
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+
+      td1 = tr[i].getElementsByTagName("td")[0];
+      td2 = tr[i].getElementsByTagName("td")[1];
+      td3 = tr[i].getElementsByTagName("td")[2];
+      td4 = tr[i].getElementsByTagName("td")[3];
+      if (td1) {
+        itemName = td1.textContent || td1.innerText;
+        id = td2.textContent || td2.innerText;
+        storageLoc = td3.textContent || td3.innerText;
+        checkedOut = td4.textContent || td4.innerText;
+        if (itemName.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";
-        } else {
+        } else if(id.toUpperCase().indexOf(filter) > -1)
+        {
+          tr[i].style.display = "";
+        }
+        else if(storageLoc.toUpperCase().indexOf(filter) > -1)
+        {
+          tr[i].style.display = "";
+        }
+        else if(checkedOut.toUpperCase().indexOf(filter) > -1)
+        {
+          tr[i].style.display = "";
+        }
+        else {
           tr[i].style.display = "none";
         }
-      }
     }
+    }
+    
+    
   }
   //this method sorts the records by name, in ascending order.
   sortRecords(fieldName){
