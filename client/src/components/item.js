@@ -17,6 +17,7 @@ class Item extends Component {
       item_id_numbers: "",
       item_storage_loc: "",
       item_checked_out: "",
+      person_checked_out:"",
       item_keywords: "",
       item_notes: "",
       records: [],
@@ -34,6 +35,7 @@ class Item extends Component {
           item_id_numbers: response.data.item_id_numbers,
           item_storage_loc: response.data.item_storage_loc,
           item_checked_out: response.data.item_checked_out,
+          person_checked_out: response.data.person_checked_out,
           item_keywords: response.data.item_keywords,
           item_notes: response.data.item_notes,
           item_temp: response.data.item_temp,
@@ -68,7 +70,7 @@ class Item extends Component {
         {this.state.item_notes !=="" && <div class="column"><label>Notes : </label></div>}
         {this.state.item_keywords !=="" && <div class="col"><label>Search Keywords : </label></div>}
         <div class="col"><label>Checked out? :</label> </div>
-        {this.state.item_checked_out === "true" && <div class="col"><label>Being Used by :</label> </div>}
+        {this.state.item_checked_out === "true" && <div class="col"><label>Being Used by :</label></div>}
         <Link to={"/edit/" + this.props.match.params.id}>Edit</Link>
       </form></div>
 
@@ -79,7 +81,7 @@ class Item extends Component {
         {this.state.item_notes !=="" && <div class="col-auto"><label><b> {this.state.item_notes}</b> </label></div> }
         {this.state.item_keywords !=="" && <div class="col-auto"><label><b> {this.state.item_keywords}</b> </label></div> }
         {this.state.item_checked_out === "true" && <label><b> Yes</b></label>}
-        {this.state.item_checked_out === "true" && <div><label><b> TEST EMAIL</b></label></div>}
+        {this.state.item_checked_out === "true" && <div><label>{this.state.person_checked_out}</label></div>}
          {this.state.item_checked_out !== "true" && <label><b> No </b></label>}
       </form></div>  
       <img  style={{height: 200 }} src= "https://cdn11.bigcommerce.com/s-ufhcuzfxw9/images/stencil/500x659/products/11439/16934/MI-4100LXL__63851.1568214592.jpg?c=2"></img>

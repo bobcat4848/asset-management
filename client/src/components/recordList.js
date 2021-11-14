@@ -14,6 +14,7 @@ const Record = (props) => (
     <td>{props.record.item_id_numbers}</td>
     <td>{props.record.item_storage_loc}</td>
     <td>{props.record.item_checked_out}</td>
+    <td>{props.record.person_checked_out}</td>
     <td>
       <Link to={"/edit/" + props.record._id} className="btn btn-outline-primary">Edit</Link>
       <a
@@ -164,6 +165,9 @@ export default class RecordList extends Component {
               <th role="button" 
               onClick={() => {this.sortRecords('item_checked_out');}}
               >Checked Out? <FontAwesomeIcon icon={faSort} style={{}}/></th>
+               <th role="button" 
+              onClick={() => {this.sortRecords('person_checked_out');}}
+              >Checked Out By Who <FontAwesomeIcon icon={faSort}/></th>
               <th>Action</th>
             </tr>
           </thead>

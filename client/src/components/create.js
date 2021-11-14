@@ -16,7 +16,7 @@ class Create extends Component {
     this.onChangeItemCheckedIn = this.onChangeItemCheckedIn.bind(this);
     this.onChangeItemKeywords = this.onChangeItemKeywords.bind(this);
     this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
-
+    this.onChangePerson = this.onChangePerson.bind(this);
     this.onChangeItemTemp = this.onChangeItemTemp.bind(this);
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -27,6 +27,7 @@ class Create extends Component {
       item_id_numbers: "",
       item_storage_loc: "",
       item_checked_out: "",
+      person_checked_out: "",
       item_keywords: "",
       item_notes: "",
       item_temp: "",
@@ -88,6 +89,11 @@ class Create extends Component {
       item_temp: e.target.value,
     });
   }
+  onChangePerson(e) {
+    this.setState({
+      person_checked_out: e.target.value,
+    });
+  }
 
   // This function will handle the submission.
   onSubmit(e) {
@@ -100,6 +106,7 @@ class Create extends Component {
       item_id_numbers: this.state.item_id_numbers,
       item_storage_loc: this.state.item_storage_loc,
       item_checked_out: this.state.item_checked_out,
+      person_checked_out: this.state.person_checked_out,
       item_keywords: this.state.item_keywords,
       item_notes: this.state.item_notes,
       item_temp: this.state.item_temp,
@@ -116,6 +123,7 @@ class Create extends Component {
       item_id_numbers: "",
       item_storage_loc: "",
       item_checked_out: "",
+      person_checked_out: "",
       item_keywords: "",
       item_notes: "",
       item_temp: "",
@@ -168,6 +176,13 @@ class Create extends Component {
             className="form-control"
             value={this.state.item_picture_url}
             onChange={this.onChangeItemPictureUrl}/> </div>
+        <div>
+          <label><b>Checked Out By:</b> </label>
+          <input
+            className="form-control"
+            value={this.state.person_checked_out}
+            onChange={this.onChangePerson}/> </div>
+        
         <div>
           <label><b>Item's TEMP:  </b></label>
           <input
