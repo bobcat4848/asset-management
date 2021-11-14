@@ -37,7 +37,7 @@ class Edit extends Component {
       item_id_numbers: "",
       item_storage_loc: "",
       item_checked_out_old: "",
-      person_checked_out:"",
+      person_checked_out: "",
       item_keywords: "",
       item_notes: "",
       records: [],
