@@ -15,6 +15,7 @@ const Record = (props) => (
     <td>{props.record.item_storage_loc}</td>
     <td>{props.record.item_checked_out}</td>
     <td>{props.record.person_checked_out}</td>
+    <td style={{display:"none"}}>{props.record.item_keywords}</td>
     <td>
       <Link to={"/edit/" + props.record._id} className="btn btn-outline-primary">Edit</Link>
       <a
@@ -60,7 +61,7 @@ export default class RecordList extends Component {
   searchItem() {
     // Declare variables
     
-    var input, filter, table, tr, td1, i, itemName,td2,td3,td4,id,storageLoc,checkedOut,td5,whoHas;
+    var input, filter, table, tr, td1, i, itemName,td2,td3,td4,id,storageLoc,checkedOut,td5,whoHas,td6,keyWords;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
@@ -74,12 +75,14 @@ export default class RecordList extends Component {
       td3 = tr[i].getElementsByTagName("td")[2];
       td4 = tr[i].getElementsByTagName("td")[3];
       td5 = tr[i].getElementsByTagName("td")[4];
+      td6 = tr[i].getElementsByTagName("td")[5];
       if (td1) {
         itemName = td1.textContent || td1.innerText;
         id = td2.textContent || td2.innerText;
         storageLoc = td3.textContent || td3.innerText;
         checkedOut = td4.textContent || td4.innerText;
         whoHas = td5.textContent || td5.innerText;
+        keyWords = td6.textContent || td6.innerText;
         if (itemName.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";
         } else if(id.toUpperCase().indexOf(filter) > -1)
@@ -95,6 +98,10 @@ export default class RecordList extends Component {
           tr[i].style.display = "";
         }
         else if(whoHas.toUpperCase().indexOf(filter) > -1)
+        {
+          tr[i].style.display = "";
+        }
+        else if(keyWords.toUpperCase().indexOf(filter) > -1)
         {
           tr[i].style.display = "";
         }
