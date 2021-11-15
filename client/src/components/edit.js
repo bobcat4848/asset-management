@@ -166,19 +166,19 @@ class Edit extends Component {
       <h3>Edit Record</h3>
       <form onSubmit={this.onSubmit}>
         <div>
-          <label><b>Name:</b> </label>
+          <label><b>Name :</b> </label>
           <input
             className="form-control"
             value={this.state.item_name}
             onChange={this.onChangeItemName}/></div>
         <div>
-          <label><b>ID Numbers: </b></label>
+          <label><b>ID Numbers : </b></label>
           <input
             className="form-control"
             value={this.state.item_id_numbers}
             onChange={this.onChangeItemIdNumbers}/> </div>
         <div>
-          <label><b> Storage Location: </b></label>
+          <label><b> Storage Location : </b></label>
           <input
             className="form-control"
             value={this.state.item_storage_loc}
@@ -191,30 +191,33 @@ class Edit extends Component {
             value={this.state.item_keywords}
             onChange={this.onChangeItemKeywords}/> </div>
         <div>
-          <label><b>Notes </b>: </label>
+          <label><b>Notes :</b></label>
           <input
             className="form-control"
             value={this.state.item_notes}
             onChange={this.onChangeItemNotes}/> </div>
         <div>
-          <label><b>Picture URL:</b> </label>
+          <label><b>Picture URL :</b> </label>
           <input
             className="form-control"
             value={this.state.item_picture_url}
             onChange={this.onChangeItemPictureUrl}/> </div>
         <div>
-          <label><b>Who Has It:</b> </label>
+          <label><b>Who Has It :</b> </label>
           <input
             className="form-control"
             value={this.state.person_checked_out}
             onChange={this.onChangePerson}/> </div>
         <div>
+          {/*}
           <label><b>Item's TEMP:  </b></label>
           <input
             className="form-control"
             value={this.state.item_temp}
             onChange={this.onChangeItemTemp}/></div>
-        <div>
+            <div>
+        {*/}
+        
           <label style={{paddingRight : 5}}><b>Currently checked out? </b></label>
           {this.state.item_checked_out_old === "true" && <label> Yes</label>}
           {this.state.item_checked_out_old !== "true" && <label> No </label>}

@@ -142,20 +142,20 @@ class Create extends Component {
         <span><em>*required</em></span>
         <div>
           <br/>
-          <label><b>*Name:</b> </label>
+          <label><b>*Name :</b> </label>
           <input
             required
             className="form-control"
             value={this.state.item_name}
             onChange={this.onChangeItemName}/></div>
         <div>
-          <label><b>ID Numbers: </b></label>
+          <label><b>ID Numbers : </b></label>
           <input
             className="form-control"
             value={this.state.item_id_numbers}
             onChange={this.onChangeItemIdNumbers}/> </div>
         <div>
-          <label><b> *Storage Location:</b></label>
+          <label><b> *Storage Location :</b></label>
           <input
             required
             className="form-control"
@@ -169,31 +169,31 @@ class Create extends Component {
             value={this.state.item_keywords}
             onChange={this.onChangeItemKeywords}/> </div>
         <div>
-          <label><b>Notes </b>: </label>
+          <label><b>Notes : </b> </label>
           <input
             className="form-control"
             value={this.state.item_notes}
             onChange={this.onChangeItemNotes}/> </div>
         <div>
-          <label><b>Picture URL:</b> </label>
+          <label><b>Picture URL :</b> </label>
           <input
             className="form-control"
             value={this.state.item_picture_url}
             onChange={this.onChangeItemPictureUrl}/> </div>
         <div>
-          <label><b>Checked Out By:</b> </label>
+          <label><b>Checked Out By :</b> </label>
           <input
             className="form-control"
             value={this.state.person_checked_out}
             onChange={this.onChangePerson}/> </div>
-        
+        {/*}
         <div>
           <label><b>Item's TEMP:  </b></label>
           <input
             className="form-control"
             value={this.state.item_temp}
             onChange={this.onChangeItemTemp}/></div>
-
+     {*/}
           <div >
             <label><b>*Checked out? </b></label>
           </div>
