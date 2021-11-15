@@ -129,7 +129,7 @@ class Create extends Component {
       item_temp: "",
     });
     
-    //redirects to equipment list for now; will direct to item page later
+    alert("Item created successfully.");
     this.props.history.push("/equipment");
   }
  
@@ -139,9 +139,12 @@ class Create extends Component {
       <div  style={{ marginTop: -10,marginLeft: 25, paddingBottom: 100}}>
         <h3>Create New Record</h3>
         <form onSubmit={this.onSubmit}>
+        <span><em>*required</em></span>
         <div>
-          <label><b>Name:</b> </label>
+          <br/>
+          <label><b>*Name:</b> </label>
           <input
+            required
             className="form-control"
             value={this.state.item_name}
             onChange={this.onChangeItemName}/></div>
@@ -152,8 +155,9 @@ class Create extends Component {
             value={this.state.item_id_numbers}
             onChange={this.onChangeItemIdNumbers}/> </div>
         <div>
-          <label><b> Storage Location: </b></label>
+          <label><b> *Storage Location:</b></label>
           <input
+            required
             className="form-control"
             value={this.state.item_storage_loc}
             onChange={this.onChangeItemStorageLocation}/> </div>
@@ -191,10 +195,11 @@ class Create extends Component {
             onChange={this.onChangeItemTemp}/></div>
 
           <div >
-            <label><b>Checked out? </b></label>
+            <label><b>*Checked out? </b></label>
           </div>
 
-          <div><input 
+          <div><input
+            required 
             type="radio" name="my-input" id="yes"
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedOut}

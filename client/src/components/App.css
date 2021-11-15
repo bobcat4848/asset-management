@@ -5,3 +5,18 @@
     border: 1px solid #ddd; /* Add a grey border */
     margin-bottom: 0px; /* Add some space below the input */
   }
+
+  .fa-icon:hover {
+    color: #4b4bff;
+  }
+
+  .format-search {
+    position: relative;
+  }
+
+  .fa-styling {
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    color: gray;
+  }

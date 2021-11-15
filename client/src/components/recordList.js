@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSort} from '@fortawesome/free-solid-svg-icons'
-
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
 const Record = (props) => (
 
@@ -25,6 +25,7 @@ const Record = (props) => (
         onClick={() => {
           if(window.confirm('Are you sure you want to delete this item?')){
           props.deleteRecord(props.record._id);
+          alert("Item deleted successfully.")
           }
         }}
       >
@@ -149,29 +150,36 @@ export default class RecordList extends Component {
   render() {
     return (
       <div>
-        <h3 style={{padding: 10}}>Equipment</h3> <input
-    type="text"
-    id="myInput"
-    onKeyUp={() => {this.searchItem();}}
-    placeholder="Search for items.."
-  />    
+        <h3 style={{padding: 10}}>Equipment</h3>
+
+        <div className="format-search">
+        <input
+          type="text"
+          id="myInput"
+          onKeyUp={() => {this.searchItem();}}
+          placeholder="Search for items.."
+          style={{paddingLeft: 35}}
+        />     
+        <span><FontAwesomeIcon icon={faSearch} className="fa-styling"/></span>
+        </div> 
+        
         <table id= "myTable" className="table table-striped" style={{ marginTop: 20, marginBottom: 150 }}>
           <thead>
             <tr>
               <th role="button" 
               onClick={() => {this.sortRecords('item_name');}}
-                >Item <FontAwesomeIcon icon={faSort}/></th>
+                >Item <FontAwesomeIcon icon={faSort} className="fa-icon"/></th>
               <th role="button" 
               onClick={() => {this.sortRecords('item_id_numbers');}}
-              >ID Numbers <FontAwesomeIcon icon={faSort}/></th>
+              >ID Numbers <FontAwesomeIcon icon={faSort} className="fa-icon"/></th>
               <th role="button" 
               onClick={() => {this.sortRecords('item_storage_loc');}}
-              >Storage Location <FontAwesomeIcon icon={faSort}/></th>
+              >Storage Location <FontAwesomeIcon icon={faSort} className="fa-icon"/></th>
               <th role="button" 
               onClick={() => {this.sortRecords('item_checked_out');}}
-              >Checked Out <FontAwesomeIcon icon={faSort} style={{}}/></th>
+              >Checked Out <FontAwesomeIcon icon={faSort} className="fa-icon"/></th>
                <th role="button" 
-              onClick={() => {this.sortRecords('person_checked_out');}}>By Who <FontAwesomeIcon icon={faSort}/> </th>
+              onClick={() => {this.sortRecords('person_checked_out');}}>By Who <FontAwesomeIcon icon={faSort} className="fa-icon"/> </th>
               <th>Action</th>
             </tr>
           </thead>
