@@ -170,7 +170,8 @@ export default class RecordList extends Component {
               <th role="button" 
               onClick={() => {this.sortRecords('item_checked_out');}}
               >Checked Out <FontAwesomeIcon icon={faSort} style={{}}/></th>
-               <th>By Who</th>
+               <th role="button" 
+              onClick={() => {this.sortRecords('person_checked_out');}}>By Who <FontAwesomeIcon icon={faSort}/> </th>
               <th>Action</th>
             </tr>
           </thead>
