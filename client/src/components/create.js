@@ -200,13 +200,15 @@ class Create extends Component {
 
           <div><input
             required 
-            type="radio" name="my-input" id="yes"
+            type="radio" name="my-input" id="yes" className="form-check-input"
+            style={{marginRight: 5}}
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedOut}
           />
          <label>Yes</label></div>
           <div><input
-            type="radio" name="my-input" id="no"
+            type="radio" name="my-input" id="no" className="form-check-input"
+            style={{marginRight: 5}}
             value={this.state.item_checked_out}
             onChange={this.onChangeItemCheckedIn}
           />
