@@ -117,8 +117,7 @@ export default class RecordList extends Component {
           return this.state.direction === 'asc' ? 1 : -1;
         }
         return 0;
-      }) 
-      
+      })  
     })
   }
 
@@ -150,7 +149,7 @@ export default class RecordList extends Component {
   render() {
     return (
       <div>
-        <h3>Equipment List</h3> <input
+        <h3 style={{padding: 10}}>Equipment</h3> <input
     type="text"
     id="myInput"
     onKeyUp={() => {this.searchItem();}}
@@ -171,9 +170,7 @@ export default class RecordList extends Component {
               <th role="button" 
               onClick={() => {this.sortRecords('item_checked_out');}}
               >Checked Out <FontAwesomeIcon icon={faSort} style={{}}/></th>
-               <th role="button" 
-              onClick={() => {this.sortRecords('person_checked_out');}}
-              >By Who <FontAwesomeIcon icon={faSort}/></th>
+               <th>By Who</th>
               <th>Action</th>
             </tr>
           </thead>

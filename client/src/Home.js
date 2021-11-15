@@ -4,16 +4,17 @@ import RecordList from "./components/recordList";
 
 const Home = () => {
     return (
-      <div style={{ textAlign: "center" }}>
-        <h3>Home Dashboard</h3>
-        <iframe
-    style={{
-      background: "#21313C",
-      border: "none",
-      borderRadius: 2,
-      boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"
-    }}
-    title="ColumnChart"
+      <div>
+        <div id="dashboard" style={{textAlign: "center"}}>
+          <h3>Home Dashboard</h3>
+          <iframe
+     style={{
+        background: "#21313C",
+        border: "none",
+       borderRadius: 2,
+       boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"
+     }}
+     title="ColumnChart"
     width={640}
     height={420}
     src="https://charts.mongodb.com/charts-project-0-gjoqf/embed/charts?id=0cc3ca2e-9490-4b95-95ef-08eade80f057&maxDataAge=3600&theme=dark&autoRefresh=false"
@@ -44,9 +45,8 @@ const Home = () => {
     height={240}
     src="https://charts.mongodb.com/charts-project-0-gjoqf/embed/charts?id=55872d97-b4c1-4c64-ae35-d3905d939a73&maxDataAge=3600&theme=dark&autoRefresh=true"
   />
-        <div className = "container">
-          <RecordList />
-        </div>  
+        </div>
+          <RecordList /> 
       </div>
     );
   };

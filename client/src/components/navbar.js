@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
 // Import logo from src/images
 import logo from "../images/rasl_logo.png"
- 
+
 function useForceUpdate(){
   const [loggedIn, setLoggedIn] = useState();
   return () => setLoggedIn(!loggedIn); // update the state to force render
@@ -26,15 +26,15 @@ const Navbar = ({loggedIn}) => {
 
   return (
     <div style={{paddingBottom: 25}}>
-      <nav id="navbar" className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav id="navBar" className="navbar navbar-expand-lg navbar-dark bg-primary">
         <NavLink className="navbar-brand" to="/home">
           <img src={logo} alt="Logo of RASL-Robotics and Autonomous Systems Lab" 
                           width="130" height="60"
                           />
         </NavLink>
         <button
-          className="navbar-toggler"
           type="button"
+          className="navbar-toggler"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
