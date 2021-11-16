@@ -26,7 +26,6 @@ function Login() {
     .then(data => {
       localStorage.setItem("token", data.token)
       history.push("/home");
-      addSignOutButton();
       setLoggedIn(true);
     });
   }
@@ -42,6 +41,7 @@ function Login() {
       console.log(data);
       if (data.isLoggedIn) {
         history.push("/home");
+        addSignOutButton();
         setLoggedIn(true);
       }
     })
