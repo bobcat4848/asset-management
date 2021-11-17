@@ -17,6 +17,8 @@ import System from "./components/system";
 import Equipment from "./components/equipment";
 import Login from "./Login";
 import Register from "./Register";
+import PrivateRoute from "./components/PrivateRoute";
+import { Link } from "react-router-dom";
 
 const App = () => {
   const history = useHistory();
@@ -44,40 +46,43 @@ const App = () => {
     <div>
       <Navbar loggedIn={user}/>
 
-      <Route exact path="/login">
-        <Login setUser={setUser} />
-      </Route>
+      <div style={{width: 1250, margin: "auto"}}>
+        <Route exact path="/login">
+          <Login setUser={setUser} />
+        </Route>
 
-      <Route exact path="/register">
-        <Register/>
-      </Route>
-      {user && user.isLoggedIn &&
-        <div style={{width: 1250, margin: "auto"}}>
-          <Route exact path="/Home">
-            <Home />
-          </Route>
-          
-          <Route exact path="/" >
-            <Redirect to="/home" />
-          </Route>
+        <Route exact path="/register">
+          <Register/>
+        </Route>
 
-          <Route path="/edit/:id" component={Edit} />
-          
-          <Route path="/create">
-            <Create />
-          </Route>
-          
-          <Route path="/item/:id" component={Item} />
-          
-          <Route path="/system">
-            <System />
-          </Route>
+        <PrivateRoute user={user} exact path="/home">
+          <Home />
+        </PrivateRoute>
 
-          <Route path="/equipment">
-            <Equipment />
-          </Route>
-        </div>
-      }
+        <PrivateRoute user={user} exact path="/">
+          <Redirect to="/home" />
+        </PrivateRoute>
+        
+        <PrivateRoute user={user} path="/edit/:id">
+          <Edit />
+        </PrivateRoute>
+
+        <PrivateRoute user={user} path="/create">
+          <Create />
+        </PrivateRoute>
+        
+        <PrivateRoute user={user} path="/item/:id">
+          <Item />
+        </PrivateRoute>
+
+        <PrivateRoute user={user} exact path="/system">
+          <System />
+        </PrivateRoute>
+
+        <PrivateRoute user={user} exact path="/equipment">
+          <Equipment />
+        </PrivateRoute>
+      </div>
     </div>
   );
 };
