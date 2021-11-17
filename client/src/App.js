@@ -4,6 +4,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { Redirect, useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
+import axios from "axios";
 
 // We import all the components we need in our app
 import Navbar from "./components/navbar";
@@ -19,61 +20,64 @@ import Register from "./Register";
 
 const App = () => {
   const history = useHistory();
-  const [loggedIn, setLoggedIn] = useState();
-  const [firstName, setFirstName] = useState("first name");
-  const [lastName, setLastName] = useState("last name");
-  
+  const [user, setUser] = useState();
+
   useEffect(() => {
-    fetch("/isUserAuth", {
+    axios.get("/isUserAuth", {
       headers: {
         "x-access-token": localStorage.getItem("token")
       }
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if (data.isLoggedIn) {
-        setLoggedIn(true);
-        setFirstName(data.first_name);
-        setLastName(data.last_name);
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.isLoggedIn) {
+        // If user is logged in, set user start to server-provided data
+        setUser(response.data);
+
+        // Redirect to home page if user is logged in already
+        if (window.location.pathname === "/login") history.push("/home");
       }
-    })
-    return () => {
-      setLoggedIn({}); // remove warnings from 
-      setFirstName({});
-      setLastName({});
-    };
+    });
   }, [history]);
 
   return (
     <div>
-      <Navbar loggedIn={loggedIn}/>
-      <div style={{width: 1250, margin: "auto"}}>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+      <Navbar loggedIn={user}/>
 
-        <Route exact path="/Home" component={Home} />
-        
-        <Route exact path="/" >
-          <Redirect to="/home" />
-        </Route>
+      <Route exact path="/login">
+        <Login setUser={setUser} />
+      </Route>
 
-        <Route path="/edit/:id" component={Edit} />
-        
-        <Route path="/create">
-          <Create />
-        </Route>
-        
-        <Route path="/item/:id" component={Item} />
-        
-        <Route path="/system">
-          <System />
-        </Route>
+      <Route exact path="/register">
+        <Register/>
+      </Route>
+      {user && user.isLoggedIn &&
+        <div style={{width: 1250, margin: "auto"}}>
+          <Route exact path="/Home">
+            <Home />
+          </Route>
+          
+          <Route exact path="/" >
+            <Redirect to="/home" />
+          </Route>
 
-        <Route path="/equipment">
-          <Equipment />
-        </Route>
-      </div>
+          <Route path="/edit/:id" component={Edit} />
+          
+          <Route path="/create">
+            <Create />
+          </Route>
+          
+          <Route path="/item/:id" component={Item} />
+          
+          <Route path="/system">
+            <System />
+          </Route>
+
+          <Route path="/equipment">
+            <Equipment />
+          </Route>
+        </div>
+      }
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import { Redirect, useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function Login() {
+function Login({ setUser }) {
   const history = useHistory();
-  const [loggedIn, setLoggedIn] = useState();
 
   function handleLogin(e) {
     e.preventDefault();
@@ -15,40 +15,36 @@ function Login() {
       password: form[1].value
     }
 
-    fetch("/login", {
-      method: "POST",
+    axios({
+      method: 'post',
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify(user)
+      url: '/login',
+      data: {
+        email: user.email,
+        password: user.password
+      }
     })
-    .then(res => res.json())
     .then(data => {
-      localStorage.setItem("token", data.token)
-      history.push("/home");
-      setLoggedIn(true);
-    });
-  }
+      if (data.data.message === "Success") {
+        // Set token to manage state in application
+        localStorage.setItem("token", data.data.token)
 
-  useEffect(() => {
-    fetch("/isUserAuth", {
-      headers: {
-        "x-access-token": localStorage.getItem("token")
+        // Get user data from login bearer token
+        axios.get("/isUserAuth", {
+          headers: {
+            "x-access-token": localStorage.getItem("token")
+          }
+        })
+        .then((response) => {
+          console.log(response.data);
+          setUser(response.data);
+          history.push("/home");
+        });
       }
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if (data.isLoggedIn) {
-        history.push("/home");
-        addSignOutButton();
-        setLoggedIn(true);
-      }
-    })
-    return () => {
-      setLoggedIn({}); // remove warnings from 
-    };
-  }, [history]);
+  }
 
   return (
       <form onSubmit={event => handleLogin(event)}>
@@ -61,14 +57,8 @@ function Login() {
         </div>
         <p>Don't have an account? <Link to="/register">Register here</Link></p>
         <button type="submit" className="btn btn-primary">Submit</button>
-        {loggedIn ? <Redirect to="/home" /> : null }
       </form>
   )
-}
-
-function addSignOutButton() {
-  var elem = document.getElementById("signout");
-  elem.style.display = "block";
 }
 
 export default Login;

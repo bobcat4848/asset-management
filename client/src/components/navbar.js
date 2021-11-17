@@ -12,18 +12,9 @@ import { NavLink } from "react-router-dom";
 // Import logo from src/images
 import logo from "../images/rasl_logo.png"
 
-function useForceUpdate(){
-  const [loggedIn, setLoggedIn] = useState();
-  return () => setLoggedIn(!loggedIn); // update the state to force render
-}
 
 // Here, we display our Navbar
-const Navbar = ({loggedIn}) => {
-  //const [loggedIn, setLoggedIn] = useState();
-  //const forceUpdate = useForceUpdate();
-
-
-
+const Navbar = ({ loggedIn }) => {
   return (
     <div style={{paddingBottom: 25}}>
       <nav id="navBar" className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -66,11 +57,13 @@ const Navbar = ({loggedIn}) => {
                 System
               </NavLink>
             </li>
-            <li className="nav-item" id="signout">
-              <NavLink onClick={deleteSignOut} className="nav-link" to="/login">
-                Sign Out
-              </NavLink>
-            </li>
+            {loggedIn && 
+              <li className="nav-item" id="signout">
+                <NavLink onClick={deleteSignOut} className="nav-link" to="/login">
+                  Sign Out
+                </NavLink>
+              </li>
+            }
           </ul>
         </div>
       </nav>
