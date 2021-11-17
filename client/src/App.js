@@ -56,7 +56,7 @@ const App = () => {
         </Route>
 
         <PrivateRoute user={user} exact path="/home">
-          <Home />
+          <Home user={user} />
         </PrivateRoute>
 
         <PrivateRoute user={user} exact path="/">

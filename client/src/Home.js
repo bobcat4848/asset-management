@@ -2,11 +2,12 @@ import React from "react";
 import RecordList from "./components/recordList";
 //Compenent for the homepage of the web app.
 
-const Home = () => {
+const Home = ({ user }) => {
     return (
       <div>
         <div id="dashboard" style={{textAlign: "center"}}>
           <h3>Home Dashboard</h3>
+          <h6>Welcome back, {user.first_name}  {user.last_name}</h6>
           <iframe
      style={{
         background: "#21313C",
