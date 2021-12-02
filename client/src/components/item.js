@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap"; 
- 
+import config from "../config";
 
 class Item extends Component {
   // This is the constructor that stores the data.
@@ -28,7 +28,7 @@ class Item extends Component {
   // This will get the record based on the id from the database.
   componentDidMount() {
     axios
-      .get("/" + this.props.match.params.id)
+      .get(config.url + "record/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           item_name: response.data.item_name,

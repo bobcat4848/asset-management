@@ -2,7 +2,8 @@ import React, { Component } from "react";
 // This will require to npm install axios
 import axios from 'axios';
 import { withRouter } from "react-router";
- 
+import config from "../config";
+
 /*
 cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
@@ -47,7 +48,7 @@ class Edit extends Component {
   // This will get the record based on the id from the database.
   componentDidMount() {
     axios
-      .get("record/" + this.props.match.params.id)
+      .get(config.url + "record/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           item_name: response.data.item_name,
@@ -148,7 +149,7 @@ class Edit extends Component {
     // This will send a post request to update the data in the database.
     axios
       .post(
-        "update/" + this.props.match.params.id,
+        config.url + "update/" + this.props.match.params.id,
         newEditedperson
       )
       .then((res) => console.log(res.data));

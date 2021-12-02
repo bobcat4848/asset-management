@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // This will require to npm install axios
 import axios from 'axios';
 import { withRouter } from "react-router";
+import config from "../config";
 
 class Create extends Component {
   // This is the constructor that stores the data.
@@ -113,7 +114,7 @@ class Create extends Component {
     };
  
     axios
-      .post("record/add", new_item)
+      .post(config.url + "record/add", new_item)
       .then((res) => console.log(res.data));
  
     // We will empty the state after posting the data to the database
